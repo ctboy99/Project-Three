@@ -1,10 +1,9 @@
 <h2> YouTube</h2>
-<div class = "youtube-video-container">
-<iframe width="570"
-height="340"
+<iframe
+width="550"
+height="380"
 src="https://www.youtube.com/embed?max-results=1&controls=0&showinfo=0&rel=0&listType=user_uploads&list=BANGTANTV" 
-frameborder="0"
-allowfullscreen></iframe> </div>
+allowfullscreen></iframe>
 
 <script>
 var tag = document.createElement('script');
@@ -16,8 +15,6 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
 player = new YT.Player('player', {
-    height: '390',
-    width: '640',
     videoId: 'M7lc1UVf-VE',
     events: {
     'onReady': onPlayerReady,
