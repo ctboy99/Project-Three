@@ -7,96 +7,25 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-
+<body>
 <head>
   <link href='https://fonts.googleapis.com/css?family=Mogra' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link scr="https://cdn.pixabay.com/photo/2016/02/03/08/34/banner-1176681_960_720.jpg">
-<style>
-body {background-color: lavender;}
-h1   { text-align: center; font-family: 'Mogra';}
-h2   { text-align: center; font-family: 'Mogra';}
-h4   { text-align: center; font-family: 'Mogra';}
-h5                               {           text-align: center; font-family: 'Roboto; font-size: 20
-                                                                                        px}
-p    {color: black; text-align: center;  font-size: 16px}
-
-      .header {
-padding: 1px;
-text-align: center;
-background: DarkSlateBlue;
-color: white;
-font-size: 30px;
-}
-</style>
 </head>
-
-<body>
-
-<div class="header">
-<h1>BTSverse</h1>
-<h4> Your Destination for BTS News</h4>
-</div>
-<body>
-<h2>
-Who Are BTS?
-</h2>
-<h5>
-BTS (Korean: 방탄소년단; RR: Bangtan Sonyeondan), also known as the Bangtan Boys, is a seven-member South Korean boy band that began formation in 2010 and debuted in 2013 under Big Hit Entertainment.[4] The septet—composed of Jin, Suga, J-Hope, RM, Jimin, V, and Jungkook—co-writes and co-produces much of their own output. Originally a hip hop group, their musical style has evolved to include a wide range of genres. Their lyrics, often focused on personal and social commentary, touch on the themes of mental health, troubles of school-age youth, loss, the journey towards loving oneself, and individualism. Their work features references to literature and psychological concepts and includes an alternative universe storyline. The group has released several albums and performed on several world tours.
-</h5>
-<h2> Twitter</h2>
-<a class="twitter-timeline" href="https://twitter.com/BTS_twt?ref_src=twsrc%5Etfw">Tweets by BTS_twt</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<app-nav-bar></app-nav-bar>
 <br>
 <br>
-<h2> YouTube</h2>
-    <div class = "youtube-video-container">
-      <iframe width="570"
-      height="340"
-      src="https://www.youtube.com/embed?max-results=1&controls=0&showinfo=0&rel=0&listType=user_uploads&list=ibighit" 
-      frameborder="0"
-      allowfullscreen></iframe> </div>
-<h2> Want More Content?</h2>
-<p>
-    <button type="button">
-    Sign Up Here!
-  </button>
-</p>
-
-
-<script>
-  var tag = document.createElement('script');
-
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '390',
-      width: '640',
-      videoId: 'M7lc1UVf-VE',
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
-    });
-  }
-  function onPlayerReady(event) {
-    event.target.playVideo();
-  }
-  var done = false;
-  function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING && !done) {
-      setTimeout(stopVideo, 6000);
-      done = true;
-    }
-  }
-  function stopVideo() {
-    player.stopVideo();
-}</script>
-
-
+<app-twitter-feed></app-twitter-feed>
+<br>
+<br>
+<app-youtube></app-youtube>
+<br>
+<br>
+<app-spotify></app-spotify>
+<br>
+<br>
+<app-wikipedia></app-wikipedia>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
@@ -107,3 +36,4 @@ BTS (Korean: 방탄소년단; RR: Bangtan Sonyeondan), also known as the Bangtan
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <router-outlet></router-outlet>
+</body>
