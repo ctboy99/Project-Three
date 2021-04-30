@@ -1,5 +1,5 @@
 body {background-color: lavender;}
-h1   { text-align: center; font-family: 'Mogra';}
+h1   { text-align: left; font-family: 'Verdana'; font-size: 50px;}
 h2   { text-align: center; font-family: 'Mogra';}
 h4   { text-align: center; font-family: 'Mogra';}
 h5                               {           text-align: center; font-family: 'Roboto; font-size: 20'
@@ -7,9 +7,15 @@ h5                               {           text-align: center; font-family: 'R
 p    {color: black; text-align: center;  font-size: 16px}
 
 .header {
-padding: 1px;
-text-align: center;
-background: DarkSlateBlue;
-color: white;
-font-size: 30px;
+padding: 10px;
+text-shadow: 3px 3px 7px gray;
+color: black;
+font-size: 50px;
 }
+
+img {
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+}
+

@@ -1,16 +1,8 @@
 body {background-color: lavender;}
-h1   { text-align: center; font-family: 'Mogra';}
-h2   { text-align: center; font-family: 'Mogra';}
-h4   { text-align: center; font-family: 'Mogra';}
+h1   { text-align: center; font-family: 'Verdana';}
+h2   { text-align: center; font-family: 'Verdana';}
+h4   { text-align: center; font-family: 'Verdana';}
 h5                               {           text-align: center; font-family: 'Roboto; font-size: 20'
                                                                                         px}
 p    {color: black; text-align: center;  font-size: 16px}
 article {color: black; text-align: center;  font-size: 16px}
-
-.header {
-padding: 1px;
-text-align: center;
-background: DarkSlateBlue;
-color: white;
-font-size: 30px;
-}
