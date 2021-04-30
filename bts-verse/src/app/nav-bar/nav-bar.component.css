@@ -1,10 +1,5 @@
 body {background-color: lavender;}
 h1   { text-align: left; font-family: 'Verdana'; font-size: 50px;}
-h2   { text-align: center; font-family: 'Mogra';}
-h4   { text-align: center; font-family: 'Mogra';}
-h5                               {           text-align: center; font-family: 'Roboto; font-size: 20'
-                                                                                        px}
-p    {color: black; text-align: center;  font-size: 16px}
 
 .header {
 padding: 10px;
