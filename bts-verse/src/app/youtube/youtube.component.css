@@ -1,12 +1,40 @@
-body {background-color: lavender;}
-h1   { text-align: center; font-family: 'Verdana';}
-h2   { text-align: center; font-family: 'Verdana';}
-h4   { text-align: center; font-family: 'Verdana';}
-h5                               {           text-align: center; font-family: 'Roboto; font-size: 20'
-                                                                                        px}
-p    {color: black; text-align: center;  font-size: 16px}
+/* Set background color */
+body {
+  background-color: lavender;
+}
+
+/* Formatting for widget title. */
+.widget-title {
+  text-align: center;
+  font-family: "Verdana";
+  color: black;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Adjust formatting for iframe. */
 iframe {
-    display: block;
-    margin: 0 auto;
-    border: 0;
+  display: block;
+  margin: 0 auto;
+  border: 0;
+}
+
+.youtube-video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.youtube-video-container::after {
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+
+.youtube-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

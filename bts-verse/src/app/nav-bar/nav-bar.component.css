@@ -1,16 +1,21 @@
-body {background-color: lavender;}
-h1   { text-align: left; font-family: 'Verdana'; font-size: 50px;}
+/* Set background color */
+body {
+  background-color: lavender;
+} 
 
+/* Formatting for header. */
 .header {
-padding: 10px;
-text-shadow: 3px 3px 7px gray;
-color: black;
-font-size: 50px;
+  padding: 10px;
+  text-shadow: 3px 3px 7px gray;
+  color: black;
+  font-size: 50px;
+  text-align: left;
+  font-family: "Verdana";
 }
 
+/* Icon image formatting. */
 img {
-    width: 100px;
-    height: 100px;
-    padding: 5px;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
 }
-

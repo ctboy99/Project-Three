@@ -1,7 +1,23 @@
-body {background-color: lavender;}
-h1   { text-align: center; font-family: 'Verdana';}
-h2   { text-align: center; font-family: 'Verdana';}
-h4   { text-align: center; font-family: 'Verdana';}
-h5                               {           text-align: center; font-family: 'Roboto; font-size: 20'
-                                                                                        px}
-p    {color: black; text-align: center;  font-size: 16px}
+/* Set background color */
+body {
+    background-color: lavender;
+  }
+
+/* Formatting for widget title. */
+.widget-title {
+    text-align: center;
+    font-family: "Verdana";
+    color: black;
+    font-size: 24px;
+  }
+
+h4 {
+  text-align: center;
+  font-family: "Verdana";
+}
+
+p {
+  color: black;
+  text-align: center;
+  font-size: 16px;
+}
