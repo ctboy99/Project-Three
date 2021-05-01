@@ -11,7 +11,6 @@ declare var wikipedia: any;
 export class WikipediaComponent implements OnInit {
 
   constructor() {
-    imports : [ BrowserModule, HttpClientModule ]
   }
 
   ngOnInit(): void {
