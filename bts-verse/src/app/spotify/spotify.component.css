@@ -5,15 +5,20 @@ body {
 
 /* Formatting for widget title. */
 .widget-title {
-  text-align: center;
+  text-align: left;
   font-family: "Verdana";
   color: black;
   font-size: 24px;
+  font-weight: 600;
+  padding: 10px;
 }
 
 /* Adjust formatting for iframe. */
-iframe {
-  display: block;
-  margin: 0 auto;
+.spotify-container iframe {
   border: 0;
+  left: 0;
+  height: 300px;
+  position: relative;
+  top: 0;
+  width: 100%;
 }

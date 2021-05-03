@@ -1,9 +1,7 @@
-<div class="widget-title">Who Are BTS?</div>
+<div class="widget-title">About BTS</div>
 <body>
-
-    {{ title }}
-    <div class="article"><div [innerHTML]=extract_html></div></div>
-<div class="timestamp">{{timestamp}}</div>
+    <div class="article"><img class="text-wrap" src={{thumbnail.source}}><div [innerHTML]=extract_html></div>
+<div class="timestamp">Retrieved from <a href="https://en.wikipedia.org/wiki/BTS">Wikipedia</a> @ {{timestamp}}</div></div>
 </body>
 
 

@@ -12,19 +12,28 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class WikipediaComponent implements OnInit {
-  title: string;
   extract_html: string;
   timestamp: string;
+  thumbnail: {
+    source: string;
+    width: number;
+  height: number;
+  };
+
 
   constructor(private wikipediaService : WikipediaDataService) {
-    this.title = 'holder';
     this.extract_html = 'holder';
     this.timestamp = 'holder';
+    this.thumbnail = {
+      source: 'holder',
+      width: 0,
+      height: 0,
+    }
   }
 
   ngOnInit() {
     this.wikipediaService.getRequest().subscribe((data: Config) => {
-    this.title = data.title, this.extract_html = data.extract_html, this.timestamp = data.timestamp});
+    this.thumbnail = data.thumbnail, this.extract_html = data.extract_html, this.timestamp = data.timestamp});
   }
 
 }

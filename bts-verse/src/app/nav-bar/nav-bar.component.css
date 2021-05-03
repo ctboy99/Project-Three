@@ -5,7 +5,6 @@ body {
 
 /* Formatting for header. */
 .header {
-  padding: 10px;
   text-shadow: 3px 3px 7px gray;
   color: black;
   font-size: 50px;

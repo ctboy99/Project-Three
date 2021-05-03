@@ -1,14 +1,16 @@
 /* Set background color */
 body {
-  background-color: white;
+  background-color: lavender;
 }
 
 /* Formatting for widget title. */
 .widget-title {
-  text-align: center;
+  text-align: left;
   font-family: "Verdana";
   color: black;
   font-size: 24px;
+  font-weight: 600;
+  padding: 10px;
 }
 
 /* Formatting for article from Wikipedia. */
@@ -16,8 +18,14 @@ body {
   background-color: white;
   background: white;
   color: black;
-  text-align: left;
+  text-align: justify;
   font-size: 16px;
+  padding: 10px;
+}
+
+.text-wrap {
+  float: right;
+  margin: 5px;
 }
 
 .timestamp {
