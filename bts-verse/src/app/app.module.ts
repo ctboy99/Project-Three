@@ -1,3 +1,4 @@
+import { WikipediaDataService } from 'src/app/wikipedia-data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,9 +23,9 @@ import { SpotifyComponent } from './spotify/spotify.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [WikipediaDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
