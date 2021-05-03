@@ -1,8 +1,14 @@
-<div class="widget-title">About BTS</div>
 <body>
-    <div class="article"><img class="text-wrap" src={{thumbnail.source}}><div [innerHTML]=extract_html></div>
-<div class="timestamp">Retrieved from <a href="https://en.wikipedia.org/wiki/BTS">Wikipedia</a> @ {{timestamp}}</div></div>
+  <!-- Card title. -->
+  <div class="widget-title">
+    <a href="https://en.wikipedia.org/wiki/BTS">BTS</a>
+  </div>
+  <blockquote class="summary">From Wikipedia, the free encyclopedia</blockquote>
+  <!-- Article body. -->
+  <div class="article">
+    <img class="text-wrap" src="{{ thumbnail.source }}" />
+    <div [innerHTML]="extract_html"></div>
+  </div>
+  <!-- Timestamp of retrevial. -->
+  <div class="timestamp">Retrieved on {{ timestamp }}</div>
 </body>
-
-
-

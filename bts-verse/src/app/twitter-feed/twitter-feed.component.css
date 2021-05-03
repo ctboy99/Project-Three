@@ -1,16 +1,41 @@
 /* Set background color */
 body {
-    background-color: lavender;
-  }
+  background-color: white;
+  box-shadow: 3px 3px 10px gray;
+  border-radius: 10px;
+}
 
 /* Formatting for widget title. */
 .widget-title {
   text-align: left;
-  font-family: "Verdana";
-  color: black;
-  font-size: 24px;
-  font-weight: 600;
+  font-family: "Verdana", sans-serif;
+  color: #3a3a3a;
+  font-size: 36px;
   padding: 10px;
+  text-shadow: 2px 2px 4px silver;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  font-weight: lighter;
+}
+
+.widget-title:hover {
+  text-shadow: 2px 2px 4px #8878c3;
+}
+
+a {
+  text-align: inherit;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  padding: inherit;
+  padding-top: inherit;
+  padding-bottom: inherit;
+  text-shadow: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  text-shadow: inherit;
 }
 
 h4 {

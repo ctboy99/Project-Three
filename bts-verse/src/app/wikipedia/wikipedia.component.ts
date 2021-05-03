@@ -1,9 +1,6 @@
 import { Config } from './config';
 import { Component, OnInit } from '@angular/core';
-import { BrowserModule }    from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { WikipediaDataService } from 'src/app/wikipedia-data.service'
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-wikipedia',
