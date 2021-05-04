@@ -1,3 +1,4 @@
+/** Interface for interepreting the Wikipedia API */
 export interface Config {
   type: string;
   title: string;
