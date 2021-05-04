@@ -12,11 +12,14 @@ var date = new Date();
 var time = date.getUTCHours();
 console.log(time);
 
+var express = require('express');
+var cors = require('cors');
 var Twit = require('twit');
-
+const app = express();
+app.use(cors());
 
 // Twitter API Connection
-var Twitter = new Twit({
+const Twitter = new Twit({
     consumer_key: '0JazQAPj3anUdzdkUZe0LSpNY',
     consumer_secret: 'Mf2ZKzNVLy7myvjcrVWIdSYSHU1apfCWtci41SIl5XEKWs6Vlm',
     access_token: '1376962088116105220-pMloTeaypLOZ57opO1ai6ZNvXRpuJ1',
@@ -44,30 +47,43 @@ var Twitter = new Twit({
     //console.log(x.user.followers_count);
  
   // function exporter() {
-        Twitter.get('statuses/user_timeline', {screen_name: "bts_twt", count: MAX_TWEETS}, function(err, data, response) {
-            let arr = new Array();
-            var x = JSON.parse(JSON.stringify(data));
-            //console.log(x)
-            var screen_name = x[0].user.screen_name;
-            var created = x[0].created_at;
-            //console.log(screen_name);
-            var text = x[0].text;
-            var favorite_count = x[0].favorite_count;
-            var retweet_count = x[0].retweet_count;
-            var profile_image = x[0].user.profile_image_url;
-            var profile_banner = x[0].user.profile_banner_url; 
-            adder(info, screen_name);
-            adder(info, created);
-            adder(info, text);
-            adder(info, favorite_count);
-            adder(info, retweet_count);
-            adder(info, profile_image);
-            adder(info, profile_banner);
-            //console.log(getter(info, 2));  
-            console.log(info); 
+    app.get('/user_timeline', (req, response) => {
+        const params = { tweet_mode: 'extended', count: 1, screen_name: "bts_twt" };
+        //app.get('statuses/user_timeline', {screen_name: "bts_twt", count: MAX_TWEETS}, function(err, data, response) {
+            // let arr = new Array();
+            // var x = JSON.parse(JSON.stringify(data));
+            // //console.log(x)
+            // var screen_name = x[0].user.screen_name;
+            // var created = x[0].created_at;
+            // //console.log(screen_name);
+            // var text = x[0].text;
+            // var favorite_count = x[0].favorite_count;
+            // var retweet_count = x[0].retweet_count;
+            // var profile_image = x[0].user.profile_image_url;
+            // var profile_banner = x[0].user.profile_banner_url; 
+            // adder(info, screen_name);
+            // adder(info, created);
+            // adder(info, text);
+            // adder(info, favorite_count);
+            // adder(info, retweet_count);
+            // adder(info, profile_image);
+            // adder(info, profile_banner);
+            // //console.log(getter(info, 2));  
+            // console.log(info);
+            //console.log(response);
+            Twitter 
+            .get('statuses/user_timeline', params)
+            .then(timeline => {
+                response.send(timeline);
+                //console.log(timeline);
+            })
+            .catch(error => {
+                response.send(error);
+            });
             });
         
         
+            app.listen(3000, () => console.log("Server Running"))
 
 
       

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TwitterService } from './twitterservice.service';
 
 @Component({
   selector: 'app-twitter-feed',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TwitterFeedComponent implements OnInit {
 
-  constructor() { }
+  timeline: any;
+  constructor(private api: TwitterService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getTwitterTimeline();
   }
 
+  getTwitterTimeline(): void  {
+    this.api.getTimeline()
+    .subscribe(
+      timeline => {
+        this.timeline = timeline;
+        console.log(this.timeline);
+        
+      }
+    )
+  }
 }
