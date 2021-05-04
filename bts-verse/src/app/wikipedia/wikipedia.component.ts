@@ -19,10 +19,10 @@ export class WikipediaComponent implements OnInit {
 
 
   constructor(private wikipediaService : WikipediaDataService) {
-    this.extract_html = 'holder';
-    this.timestamp = 'holder';
+    this.extract_html = 'error - unable to retrieve data';
+    this.timestamp = 'error - unable to retrieve data';
     this.thumbnail = {
-      source: 'holder',
+      source: 'error - unable to retrieve data',
       width: 0,
       height: 0,
     }
