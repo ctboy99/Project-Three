@@ -4,13 +4,13 @@
     overflow: hidden;
     width: 100%;
   }
-  
+
   .youtube-video-container::after {
     display: block;
     content: "";
     padding-top: 56.25%;
   }
-  
+
   .youtube-video-container iframe {
     position: absolute;
     top: 0;
