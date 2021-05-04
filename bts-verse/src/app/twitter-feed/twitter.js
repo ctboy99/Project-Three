@@ -12,9 +12,9 @@ var date = new Date();
 var time = date.getUTCHours();
 console.log(time);
 
-var express = require('express');
-var cors = require('cors');
-var Twit = require('twit');
+const express = require('express');
+const cors = require('cors');
+const Twit = require('twit');
 const app = express();
 app.use(cors());
 
@@ -46,9 +46,9 @@ const Twitter = new Twit({
 
     //console.log(x.user.followers_count);
  
-  // function exporter() {
+ function parser(){
     app.get('/user_timeline', (req, response) => {
-        const params = { tweet_mode: 'extended', count: 5, screen_name: "bts_twt" };
+        const params = { tweet_mode: 'extended', count: 2, screen_name: "bts_twt" };
         //app.get('statuses/user_timeline', {screen_name: "bts_twt", count: MAX_TWEETS}, function(err, data, response) {
             // let arr = new Array();
             // var x = JSON.parse(JSON.stringify(data));
@@ -84,7 +84,11 @@ const Twitter = new Twit({
         
         
             app.listen(3000, () => console.log("Server Running"))
+        
+        }
 
+        parser();
+        
 
       
 //exporter();
