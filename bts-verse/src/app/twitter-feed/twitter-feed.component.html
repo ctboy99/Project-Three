@@ -18,15 +18,17 @@
   <div *ngIf="undefined === this.timeline">Loading...</div>
   <div *ngIf="undefined !== this.timeline">
   <ng-container *ngFor="let tweets of this.timeline.data">
-  <h3><div class="center">Tweets</div></h3>
-  <p>{{tweets.full_text}}</p>
-  <p>{{tweets.user.name}}</p>
-  <p>{{tweets.created_at}}</p>
-  <p>{{tweets.user.screen_name}}</p>
-  <p>{{tweets.user.location}}</p>
-  <p>{{tweets.user.description}}</p>
+  <h3><div class="center">Tweet</div></h3>
+  <p>Tweet: {{tweets.full_text}}</p>
+  <p>Name: {{tweets.user.name}}</p>
+  <p>Screenname: {{tweets.user.screen_name}}</p>
+  <p>Number of Favorites: {{tweets.favorite_count}}</p>
+  <p>Number of Retweets: {{tweets.retweet_count}}</p>
+  <p>Bio: {{tweets.user.description}}</p>
+  <p>Timestamp: {{tweets.created_at}}</p>
+
   <br>
-  
+
 
 </ng-container>
 </div>
