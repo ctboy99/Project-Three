@@ -48,7 +48,7 @@ const Twitter = new Twit({
  
  function parser(){
     app.get('/user_timeline', (req, response) => {
-        const params = { tweet_mode: 'extended', count: 5, screen_name: "bts_twt" };
+        const params = { tweet_mode: 'extended', count: 10, list_id: "1389838980326301697" };
         //app.get('statuses/user_timeline', {screen_name: "bts_twt", count: MAX_TWEETS}, function(err, data, response) {
             // let arr = new Array();
             // var x = JSON.parse(JSON.stringify(data));
@@ -72,7 +72,7 @@ const Twitter = new Twit({
             // console.log(info);
             //console.log(response);
             Twitter 
-            .get('statuses/user_timeline', params)
+            .get('/lists/statuses', params)
             .then(timeline => {
                 response.send(timeline);
                 //console.log(timeline);
@@ -82,13 +82,11 @@ const Twitter = new Twit({
             });
             });
         
-        
-            app.listen(3000, () => console.log("Server Running"))
-        
         }
 
         parser();
         
+        app.listen(3000, () => console.log("Server Running"))
 
       
 //exporter();
