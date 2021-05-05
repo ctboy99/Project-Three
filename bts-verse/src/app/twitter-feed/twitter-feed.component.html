@@ -13,31 +13,30 @@
       src="https://platform.twitter.com/widgets.js"
       charset="utf-8"
     ></script> -->
-    Tweet
   </h4>
   <br/>
-<div class = "card">
   <script src = "./twitter.js"></script>
   <div *ngIf="undefined === this.timeline">Loading...</div>
   <div *ngIf="undefined !== this.timeline">
   <ng-container *ngFor="let tweets of this.timeline.data; let i = index">
+    <div class = "card">
+      <br>
   <h3><div class="center">Tweet {{i + 1}}</div></h3>
-  <p>Tweet: {{tweets.full_text}}</p>
-  <p>Name: {{tweets.user.name}}</p>
-  <img src = {{tweets.user.profile_image_url}}/>
+  <p><img src = {{tweets.user.profile_image_url}}/>
+    {{tweets.user.name}}</p>    
   <p>Screenname: {{tweets.user.screen_name}}</p>
+  <p>Tweet: {{tweets.full_text}}</p>
   <p>Number of Favorites: {{tweets.favorite_count}}</p>
   <p>Number of Retweets: {{tweets.retweet_count}}</p>
-  <p>Bio: {{tweets.user.description}}</p>
   <p>Created at: {{tweets.created_at}}</p>
 
   <br>
+  </div>
 
 
 </ng-container>
 <div class="timestamp">Last Retrieved: {{this.timeline.resp.headers.date}}</div>
 
-</div>
 </div>
 </body>
 
