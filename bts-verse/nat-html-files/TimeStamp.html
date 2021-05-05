@@ -3,6 +3,6 @@
     var today = new Date(document.lastModified); 
     today.setTime((today.getTime()+(5000*60*60)) ) 
     with (today) { 
-    document.write("Refreshed "+getDate()+' '+months[getMonth()]+', '+(getYear()+1900)+' | '+(getHours()-5)+':'+getMinutes()+" EST") 
+    document.write("Refreshed "+getDate()+' '+months[getMonth()]+', '+(getYear()+1900)+' | '+getHours()+':'+getMinutes()+" GMT") 
 } 
 </script>
