@@ -24,16 +24,19 @@
   <h3><div class="center">Tweet {{i + 1}}</div></h3>
   <p>Tweet: {{tweets.full_text}}</p>
   <p>Name: {{tweets.user.name}}</p>
+  <img src = {{tweets.user.profile_image_url}}/>
   <p>Screenname: {{tweets.user.screen_name}}</p>
   <p>Number of Favorites: {{tweets.favorite_count}}</p>
   <p>Number of Retweets: {{tweets.retweet_count}}</p>
   <p>Bio: {{tweets.user.description}}</p>
-  <p>Timestamp: {{tweets.created_at}}</p>
+  <p>Created at: {{tweets.created_at}}</p>
 
   <br>
 
 
 </ng-container>
+<a>Last Pulled: {{this.timeline.resp.headers.date}}</a>
+
 </div>
 </div>
 </body>
