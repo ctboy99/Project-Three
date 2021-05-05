@@ -13,11 +13,13 @@
       src="https://platform.twitter.com/widgets.js"
       charset="utf-8"
     ></script> -->
+    
   </h4>
   <br/>
   <script src = "./twitter.js"></script>
   <div *ngIf="undefined === this.timeline">Loading...</div>
   <div *ngIf="undefined !== this.timeline">
+    <div class = "card-container">
   <ng-container *ngFor="let tweets of this.timeline.data; let i = index">
     <div class = "card">
       <br>
@@ -35,6 +37,7 @@
 
 
 </ng-container>
+</div>
 <div class="timestamp">Last Retrieved: {{this.timeline.resp.headers.date}}</div>
 
 </div>

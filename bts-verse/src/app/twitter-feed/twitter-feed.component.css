@@ -64,8 +64,17 @@ p {
 .card {
   margin: 30px;
   border: 5px dotted #e6e6fa;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
   border-radius: 50%
+}
+
+.card-container {
+  width: auto;
+  height: 424px;
+  overflow-y: scroll;
+  background-color: #e6e6fa;
 }

@@ -48,7 +48,7 @@ const Twitter = new Twit({
  
  function parser(){
     app.get('/user_timeline', (req, response) => {
-        const params = { tweet_mode: 'extended', count: 2, screen_name: "bts_twt" };
+        const params = { tweet_mode: 'extended', count: 5, screen_name: "bts_twt" };
         //app.get('statuses/user_timeline', {screen_name: "bts_twt", count: MAX_TWEETS}, function(err, data, response) {
             // let arr = new Array();
             // var x = JSON.parse(JSON.stringify(data));
