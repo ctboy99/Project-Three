@@ -1,5 +1,53 @@
-<h2> Twitter</h2>
-<h4><a class="twitter-timeline" href="https://twitter.com/BTS_twt?ref_src=twsrc%5Etfw">Tweets by BTS_twt</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-Tweet</h4>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<br>
+<script type="module" src="./5-3/1/bts-verse/src/app/twitter-feed/twitter.js"></script>
+
+<body>
+  <div class="widget-title"><a href="https://twitter.com/BTS_twt" title="BTS's Twitter Page">Twitter</a></div>
+  <h4>
+    <p
+      class="twitter-timeline"
+      href="https://twitter.com/BTS_twt?ref_src=twsrc%5Etfw"
+      >Tweets by @BTS_twt and @BTS_bighit:</p>
+    
+  </h4>
+  <br/>
+  <script src = "./twitter.js"></script>
+  <div *ngIf="undefined === this.timeline">Loading...</div>
+  <div *ngIf="undefined !== this.timeline">
+    <div class = "card-container">
+  <ng-container *ngFor="let tweets of this.timeline.data; let i = index">
+    <div class = "card">
+      <br>
+  <h3><div class="center">Tweet {{i + 1}}</div></h3>
+  <p><img src = {{tweets.user.profile_image_url}}/>
+    {{tweets.user.name}}</p>    
+  <p>@{{tweets.user.screen_name}}</p>
+  <p>Tweeted: {{tweets.full_text}}</p>
+  <p><img src = "./assets/images/Likes.png" width="35" height="35">{{tweets.favorite_count}}</p>
+  <p><img src = "./assets/images/Retweets.jpg" width="30" height="30"> {{tweets.retweet_count}}</p>
+  <p>Created at: {{tweets.created_at}}</p>
+
+  <br>
+  </div>
+
+
+</ng-container>
+</div>
+<div class="timestamp">Last Retrieved: {{this.timeline.resp.headers.date}}</div>
+
+</div>
+</body>
+
+  <!-- <script>
+    !(function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        p = /^http:/.test(d.location) ? "http" : "https";
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + "://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    })(document, "script", "twitter-wjs");
+  </script>
+</body> -->

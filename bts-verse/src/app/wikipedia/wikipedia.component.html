@@ -1,27 +1,14 @@
-
-    <h2>
-    Who Are BTS?
-    </h2>
-    <div id="article"></div>
-    <script>
-        $(function(){
-        
-            $.ajax({
-                type: "GET",
-                url: "https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=BTS&callback=?",
-                contentType: "application/json; charset=utf-8",
-                async: false,
-                dataType: "json",
-                success: function (data, textStatus, jqXHR) {
-        
-                    var markup = data.parse.text["*"];
-                    var blurb = $('<div></div>').html(markup);
-                    $('#article').html($(blurb).find('p'));
-        
-                },
-                error: function (errorMessage) {
-                }
-            });
-        });</script><div id="article"></div>
-    
-
+<body>
+  <!-- Card title. -->
+  <div class="widget-title">
+    <a href="https://en.wikipedia.org/wiki/BTS" title="BTS's Wikipedia Page">BTS</a>
+  </div>
+  <blockquote class="summary">From Wikipedia, the free encyclopedia</blockquote>
+  <!-- Article body. -->
+  <div class="article">
+    <img class="text-wrap" alt="Image of BTS" src="{{ thumbnail.source }}" />
+    <div [innerHTML]="extract_html"></div>
+  </div>
+  <!-- Timestamp of retrevial. -->
+  <div class="timestamp">Retrieved on {{ timestamp }}</div>
+</body>

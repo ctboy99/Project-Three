@@ -1,13 +1,58 @@
-body {background-color: lavender;}
-h1   { text-align: center; font-family: 'Mogra';}
-h2   { text-align: center; font-family: 'Mogra';}
-h4   { text-align: center; font-family: 'Mogra';}
-h5                               {           text-align: center; font-family: 'Roboto; font-size: 20'
-                                                                                        px}
-p    {color: black; text-align: center;  font-size: 16px}
+/* Set background color */
+body {
+  background-color: white;
+  box-shadow: 3px 3px 10px gray;
+  border-radius: 10px;
+}
 
-iframe {
-    display: block;
-    margin: 0 auto;
-    border: 0;
+/* Formatting for widget title. */
+.widget-title {
+  text-align: left;
+  font-family: "Verdana", sans-serif;
+  color: #3a3a3a;
+  font-size: 36px;
+  padding: 10px;
+  text-shadow: 2px 2px 4px silver;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  font-weight: lighter;
+}
+
+.widget-title:hover {
+  text-shadow: 2px 2px 4px #8878c3;
+}
+
+a {
+  text-align: inherit;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  padding: inherit;
+  padding-top: inherit;
+  padding-bottom: inherit;
+  text-shadow: inherit;
+  text-decoration: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+}
+
+a:hover {
+  text-shadow: inherit;
+}
+
+/* Adjust formatting for iframe. */
+.spotify-container iframe {
+  border: 0;
+  left: 0;
+  height: 300px;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+/* Timestamp formatting. */
+.timestamp {
+  text-align: right;
+  font-size: 10px;
+  padding: 10px;
 }

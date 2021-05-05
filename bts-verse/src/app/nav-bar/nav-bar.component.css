@@ -1,15 +1,22 @@
-body {background-color: lavender;}
-h1   { text-align: center; font-family: 'Mogra';}
-h2   { text-align: center; font-family: 'Mogra';}
-h4   { text-align: center; font-family: 'Mogra';}
-h5                               {           text-align: center; font-family: 'Roboto; font-size: 20'
-                                                                                        px}
-p    {color: black; text-align: center;  font-size: 16px}
+/* Set background color */
+body {
+  background-color: lavender;
+} 
 
+/* Formatting for header. */
 .header {
-padding: 1px;
-text-align: center;
-background: DarkSlateBlue;
-color: white;
-font-size: 30px;
+  text-shadow: 3px 3px 7px gray;
+  color: black;
+  font-size: 60px;
+  text-align: left;
+  font-family: "Helvetica Neue";
+  letter-spacing: 5px;
+  font-weight: 300;
+}
+
+/* Icon image formatting. */
+img {
+  width: 100px;
+  height: 100px;
+  padding: 5px;
 }

@@ -1,15 +1,60 @@
-body {background-color: lavender;}
-h1   { text-align: center; font-family: 'Mogra';}
-h2   { text-align: center; font-family: 'Mogra';}
-h4   { text-align: center; font-family: 'Mogra';}
-h5                               {           text-align: center; font-family: 'Roboto; font-size: 20'
-                                                                                        px}
-p    {color: black; text-align: center;  font-size: 16px}
+body {
+  background-color: lavender;
+  padding: 25px;
+}
+h1 {
+  text-align: center;
+  font-family: "Verdana";
+}
+h2 {
+  text-align: center;
+  font-family: "Verdana";
+}
+h4 {
+  text-align: center;
+  font-family: "Verdana";
+}
+h5 {
+  text-align: center;
+  font-family: "Roboto; font-size: 20" px;
+}
+p {
+  color: black;
+  text-align: center;
+  font-size: 16px;
+}
 
-.header {
-padding: 1px;
-text-align: center;
-background: DarkSlateBlue;
-color: white;
-font-size: 30px;
+/* https://www.w3schools.com/howto/howto_css_two_columns.asp */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 25px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* Formatting for widget title. */
+.widget-title {
+  text-align: center;
+  font-family: "Verdana";
+  color: black;
+  text-align: center;
+  font-size: 24px;
 }

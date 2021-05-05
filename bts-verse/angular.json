@@ -32,8 +32,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "assets/js/twitter.js",
-              "assets/js/wikipedia.js",
+              "src/app/twitter-feed/twitter.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
@@ -101,8 +100,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "assets/js/twitter.js",
-              "assets/js/wikipedia.js",
+              "src/app/twitter-feed/twitter.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]

@@ -1,39 +1,17 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <body>
-<head>
-  <link href='https://fonts.googleapis.com/css?family=Mogra' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-  <link scr="https://cdn.pixabay.com/photo/2016/02/03/08/34/banner-1176681_960_720.jpg">
-</head>
-<app-nav-bar></app-nav-bar>
-<br>
-<br>
-<app-twitter-feed></app-twitter-feed>
-<br>
-<br>
-<app-youtube></app-youtube>
-<br>
-<br>
-<app-spotify></app-spotify>
-<br>
-<br>
-<app-wikipedia></app-wikipedia>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet></router-outlet>
+  <app-nav-bar></app-nav-bar>
+  <div class="row">
+    <div class="column">
+      <app-youtube></app-youtube>
+      <br />
+      <app-wikipedia></app-wikipedia>
+    </div>
+    <div class="column">
+      <app-spotify></app-spotify>
+      <br />
+      <app-twitter-feed>
+      </app-twitter-feed>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
 </body>
