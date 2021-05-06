@@ -1,7 +1,7 @@
 /* Set background color */
 body {
   background-color: lavender;
-} 
+}
 
 /* Formatting for header. */
 .header {
@@ -31,6 +31,6 @@ body {
 }
 
 .icon-bar {
-  clear: right;
   float: right;
+  clear: right;
 }
