@@ -12,32 +12,10 @@ body {
   color: #3a3a3a;
   font-size: 36px;
   padding: 10px;
-  text-shadow: 2px 2px 4px silver;
+  padding-left: 20px;
   text-decoration: none;
   letter-spacing: 1.5px;
   font-weight: lighter;
-}
-
-.widget-title:hover {
-  text-shadow: 2px 2px 4px #8878c3;
-}
-
-a {
-  text-align: inherit;
-  font-family: inherit;
-  color: inherit;
-  font-size: inherit;
-  padding: inherit;
-  padding-top: inherit;
-  padding-bottom: inherit;
-  text-shadow: inherit;
-  text-decoration: inherit;
-  letter-spacing: inherit;
-  font-weight: inherit;
-}
-
-a:hover {
-  text-shadow: inherit;
 }
 
 /* Adjust formatting for iframe. */
@@ -55,4 +33,19 @@ a:hover {
   text-align: right;
   font-size: 10px;
   padding: 10px;
+}
+
+/* Arrow formatting */
+.arrow {
+  clear: right;
+  float: right;
+  padding-right: 10px;
+  text-shadow: 2px 2px 4px silver;
+  text-decoration: none;
+  font-family: "Verdana", sans-serif;
+  color: #3a3a3a;
+}
+
+.arrow:hover {
+  text-shadow: 2px 2px 4px #8878c3;
 }
