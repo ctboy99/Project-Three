@@ -1,6 +1,4 @@
-// var favorite_count;
-// var retweet_count;
-// var text;
+const MAX_TWEETS = 100;
 
 const Database = require('./database.js');
 
@@ -8,13 +6,9 @@ var db = new Database();
 db.Connector();
 
 
-const params = { tweet_mode: 'extended', count: 10, list_id: "1389838980326301697", exclude: "retweets, replies" };
-
-const info = new Array();
-var filled = new Array();
+const params = { tweet_mode: 'extended', count: MAX_TWEETS, list_id: "1389838980326301697", exclude: "retweets, replies" };
 
 // Printed number of streamed tweets filtered by name. 
-const MAX_TWEETS = 1;
 
 var date = new Date();
 var time = date.getUTCHours();
@@ -120,16 +114,23 @@ function parser2(){
             
 
          })
+
+
           
     }; 
         
-  
+        listener();
 
+        //parser2();
+        module.exports = parser; 
+        module.exports = listener; 
 
-        parser2();
+        parser();
+
         //parser();
-        //app.listen(3000, () => console.log("Server Running"))
-
+        function listener() {
+        app.listen(3000, () => console.log("Server Running"));
+        }
         //fs.writeFile("test.txt", response);
 
       
