@@ -1,22 +1,25 @@
 const mysql = require('mysql');
-const twitter = require("./twitter.js");
+//const twitter = require("./twitter.js");
 
 
 //const { resourceLimits } = require('node:worker_threads');
 
-/*const Connector = (function() {
-    function Connector() {
-*/        const conn = mysql.createConnection({
+class Database  {    
+     Connector() {
+         this.connection = mysql.createConnection({
             host: "bts-verse.cw824owciirp.us-east-1.rds.amazonaws.com",
             user: "admin",
             password: "rantworks",
-            database: "btsverse"
-        });
-        conn.connect(function(err) {
-            if (err) throw err; 
-            console.log("Connected");
-            conn.end();
-        });
+            database: "btsverse",
+        
+        });  
+
+        //this.connection.connector();
+     }
+     
+
+            //conn.end();
+     
     
     
 
@@ -32,29 +35,57 @@ const twitter = require("./twitter.js");
     }
 })();
 */
-function getRecords(tableName) {
+// connect(function(err) {
+//     if (err) throw err; 
+//     console.log("Connected");
+
+connect() {
+    this.connection.connect();
+    console.log("Connected!");
+}
+
+quit() {
+    this.connection.end();
+    console.log("Ended.")
+}
+
+
+getRecords(tableName) {
     var sql = "SELECT * FROM " + tableName;
-    //var conn = conn;
-    return conn.query(sql);
+    console.log("Done!");
+    return this.connection.query(sql, function (error, results, fields) {
+        console.log(results);
+    });
 }
 
 //getRecords("Twitter");
 
-function removeRecords(tableName) {
+removeRecords(tableName) {
     var sql = "TRUNCATE TABLE " + tableName;
     var conn = conn;
-    conn.query(sql);
+    this.connection.query(sql);
 }
 
-function setTwitterRecord(queue, link) {
+setTwitterRecord(queue, link) {
     var sql = "INSERT INTO Twitter(queue, link) VALUES('" + queue + "', '" + link + "')";
-    var conn = conn;
-    conn.query(sql);
+    this.connection.query(sql);
+    console.log("Done!");
 }
 
-function setYouTubeRecord(queue, link) {
+setYouTubeRecord(queue, link) {
     var sql = "INSERT INTO Youtube(queue, link) VALUES('" + queue + "', '" + link + "')";
-    var conn = Connector();
-    conn.query(sql);
+    this.connection.query(sql);
+}
+    
 }
 
+var db1 = new Database();
+db1.Connector();
+db1.connect();
+db1.getRecords("Twitter");
+//console.log(db1.getRecords("Twitter"));
+console.log("Test");
+db1.quit();
+//db1.connector();
+//console.log(db1.connection);
+module.exports = Database;
