@@ -8,7 +8,7 @@ var db = new Database();
 db.Connector();
 
 
-const params = { tweet_mode: 'extended', count: 10, list_id: "1389838980326301697" };
+const params = { tweet_mode: 'extended', count: 10, list_id: "1389838980326301697", exclude: "retweets, replies" };
 
 const info = new Array();
 var filled = new Array();
@@ -56,18 +56,28 @@ const Twitter = new Twit({
     //console.log(x.user.followers_count);
 
 function parser2(){
+    var i = 0;
+    var j = 0;
+    var myCollection = new Map();
         Twitter 
         .get('/lists/statuses', params, function(error, tweets, response) {
         //console.log(tweets);
-        var myCollection = {
-            profile_picture: tweets[0].user.profile_image_url 
-         };
-         console.log(myCollection);
-         db.connect();
-         db.setTwitterRecord(1, myCollection[0]);
-         db.quit();
+        var x = JSON.parse(JSON.stringify(tweets));
+        //console.log(x[3].full_text);
+        for (i = 0; i < x.length; i++) {
+           myCollection.set(i, x[i].full_text); 
+        };
+        //console.log(myCollection);
+        //db.connect()
+        //console.log(keys);
+
+        for (j = 0; j < x.length; j++) {
+            console.log(myCollection.get(j).toString());
+            db.setTwitterRecord(j, myCollection.get(j).toString());
+        }
+        db.quit();
     })
-}
+};
 
 
  
@@ -116,9 +126,8 @@ function parser2(){
   
 
 
-
         parser2();
-        
+        //parser();
         //app.listen(3000, () => console.log("Server Running"))
 
         //fs.writeFile("test.txt", response);

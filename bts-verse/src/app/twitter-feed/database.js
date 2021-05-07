@@ -13,31 +13,7 @@ class Database  {
             database: "btsverse",
         
         });  
-
-        //this.connection.connector();
-     }
-     
-
-            //conn.end();
-     
-    
-    
-
-/*    var instance;
-    return {
-        getInstance: function() {
-            if (null == instance) {
-                instance = new Connector();
-                instance.constructor = null;
-            }
-            return instance;
-        }
     }
-})();
-*/
-// connect(function(err) {
-//     if (err) throw err; 
-//     console.log("Connected");
 
 connect() {
     this.connection.connect();
@@ -53,16 +29,13 @@ quit() {
 getRecords(tableName) {
     var sql = "SELECT * FROM " + tableName;
     console.log("Done!");
-    return this.connection.query(sql, function (error, results, fields) {
+    return this.connection.query(sql, function(error, results, fields) {
         console.log(results);
     });
 }
 
-//getRecords("Twitter");
-
 removeRecords(tableName) {
     var sql = "TRUNCATE TABLE " + tableName;
-    var conn = conn;
     this.connection.query(sql);
 }
 
@@ -82,9 +55,10 @@ setYouTubeRecord(queue, link) {
 var db1 = new Database();
 db1.Connector();
 db1.connect();
+
 db1.getRecords("Twitter");
-//console.log(db1.getRecords("Twitter"));
-console.log("Test");
+// console.log(db1.getRecords("Twitter"));
+// console.log("Test");
 db1.quit();
 //db1.connector();
 //console.log(db1.connection);
