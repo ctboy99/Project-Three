@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TwitterService } from './twitterservice.service';
 
 declare function parser() : any; 
-declare function create() : any;
+declare function parser() : any;
 
 @Component({
   selector: 'app-twitter-feed',
@@ -15,8 +15,6 @@ export class TwitterFeedComponent implements OnInit {
    }
 
   ngOnInit() {
-    //create();
-    //parser();
     this.getTwitterTimeline();
     
   }

@@ -4,7 +4,7 @@ const mysql = require('mysql');
 
 //const { resourceLimits } = require('node:worker_threads');
 
-class Database  {    
+class Database  {  
      Connector() {
          this.connection = mysql.createConnection({
             host: "bts-verse.cw824owciirp.us-east-1.rds.amazonaws.com",
@@ -49,14 +49,42 @@ setYouTubeRecord(queue, link) {
     var sql = "INSERT INTO Youtube(queue, link) VALUES('" + queue + "', '" + link + "')";
     this.connection.query(sql);
 }
+
+dropTable(tableName) {
+    var sql = "DROP TABLE " + tableName;
+    this.connection.query(sql);
+     
+}
     
+createTwitterTable() {
+    var sql = "CREATE TABLE TwitterData (profile_picture VARCHAR(255), user_name VARCHAR(255), screen_name VARCHAR(255), full_text VARCHAR(1000), favorites INT, retweets INT, created_at VARCHAR(255))";
+    this.connection.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+    });
+        console.log(sql);
+}
+
+addToTwitterTable(profile_pic, user_name, screen_name, full_text, favorites, retweets, created) {
+    var final = full_text.toString().replace(/['`]/g,"");
+    final.trim();
+    var sql = "INSERT INTO TwitterData (profile_picture, user_name, screen_name, full_text, favorites, retweets, created_at) VALUES (" + "'" + profile_pic.toString() + "'" + "," + " " + "'" + user_name.toString() + "'" + "," + " " + "'" + screen_name.toString() + "'" + "," + " " + "'" + final.toString() + "'" + "," + " " + "'" + favorites.toString() + "'" + "," + " " + "'" + retweets.toString() + "'" + "," + " " + "'" + created.toString() + "')";
+    this.connection.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+    });
+        console.log(sql);
+}
+
 }
 
 var db1 = new Database();
 db1.Connector();
 db1.connect();
-
-db1.getRecords("Twitter");
+//db1.dropTable("TwitterData")
+//db1.removeRecords("TwitterData");
+//db1.createTwitterTable();
+db1.getRecords("TwitterData");
 // console.log(db1.getRecords("Twitter"));
 // console.log("Test");
 db1.quit();
