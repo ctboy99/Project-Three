@@ -1,6 +1,7 @@
 /* Set background color */
 body {
   background-color: lavender;
+  padding-top: 25px;
 }
 
 /* Formatting for header. */
@@ -10,6 +11,11 @@ body {
   text-align: left;
   font-family: "Verdana";
   letter-spacing: 5px;
+  z-index: 9999999;
+  position: sticky;
+  top: 0;
+  background-color: lavender;
+  padding: 5px;
 }
 
 /* Icon image formatting. */
