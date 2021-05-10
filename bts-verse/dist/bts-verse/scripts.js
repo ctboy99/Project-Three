@@ -1,7 +1,15 @@
-
 // var favorite_count;
 // var retweet_count;
 // var text;
+
+const Database = require('./database.js');
+
+var db = new Database();
+db.Connector();
+
+
+const params = { tweet_mode: 'extended', count: 10, list_id: "1389838980326301697", exclude: "retweets, replies" };
+
 const info = new Array();
 var filled = new Array();
 
@@ -12,6 +20,7 @@ var date = new Date();
 var time = date.getUTCHours();
 console.log(time);
 
+var fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const Twit = require('twit');
@@ -45,10 +54,37 @@ const Twitter = new Twit({
 
 
     //console.log(x.user.followers_count);
+
+function parser2(){
+    var i = 0;
+    var j = 0;
+    var myCollection = new Map();
+        Twitter 
+        .get('/lists/statuses', params, function(error, tweets, response) {
+        //console.log(tweets);
+        var x = JSON.parse(JSON.stringify(tweets));
+        //console.log(x[3].full_text);
+        for (i = 0; i < x.length; i++) {
+           myCollection.set(i, x[i].full_text); 
+        };
+        //console.log(myCollection);
+        //db.connect()
+        //console.log(keys);
+
+        for (j = 0; j < x.length; j++) {
+            console.log(myCollection.get(j).toString());
+            db.setTwitterRecord(j, myCollection.get(j).toString());
+        }
+        db.quit();
+    })
+};
+
+
  
  function parser(){
     app.get('/user_timeline', (req, response) => {
-        const params = { tweet_mode: 'extended', count: 10, list_id: "1389838980326301697" };
+        //fs.writeFile("response.txt", JSON.stringify(req)); 
+
         //app.get('statuses/user_timeline', {screen_name: "bts_twt", count: MAX_TWEETS}, function(err, data, response) {
             // let arr = new Array();
             // var x = JSON.parse(JSON.stringify(data));
@@ -75,18 +111,26 @@ const Twitter = new Twit({
             .get('/lists/statuses', params)
             .then(timeline => {
                 response.send(timeline);
-                //console.log(timeline);
+                //response.send(timeline);
+          
             })
             .catch(error => {
                 response.send(error);
-            });
-            });
-        
-        }
+            })
+            
 
-        parser();
+         })
+          
+    }; 
         
-        app.listen(3000, () => console.log("Server Running"))
+  
+
+
+        parser2();
+        //parser();
+        //app.listen(3000, () => console.log("Server Running"))
+
+        //fs.writeFile("test.txt", response);
 
       
 //exporter();

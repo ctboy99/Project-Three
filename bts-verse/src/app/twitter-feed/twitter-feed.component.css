@@ -59,17 +59,16 @@ img {
   background-color: #e6e6fa;
 }
 
-/* Arrow formatting */
-.arrow {
+/* Icon formatting */
+.icon {
   clear: right;
   float: right;
-  padding-right: 10px;
-  text-shadow: 2px 2px 4px silver;
-  text-decoration: none;
-  font-family: "Verdana", sans-serif;
-  color: #3a3a3a;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
 }
 
-.arrow:hover {
-  text-shadow: 2px 2px 4px #8878c3;
+.icon:hover {
+  box-shadow: 3px 3px 7px gray;
+  border-radius: 50px;
 }
