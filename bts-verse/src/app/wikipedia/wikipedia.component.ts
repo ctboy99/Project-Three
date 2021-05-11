@@ -1,3 +1,5 @@
+/** @RH_RANTWORKS */
+
 import { Config } from "./config";
 import { Component, OnInit } from "@angular/core";
 import { WikipediaDataService } from "src/app/wikipedia-data.service";
@@ -7,7 +9,9 @@ import { WikipediaDataService } from "src/app/wikipedia-data.service";
   templateUrl: "./wikipedia.component.html",
   styleUrls: ["./wikipedia.component.css"],
 })
+
 export class WikipediaComponent implements OnInit {
+  /** Explain what this component is and what it does! and why! */
   extract_html: string;
   timestamp: string;
   thumbnail: {

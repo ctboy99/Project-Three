@@ -1,3 +1,5 @@
+/** @RH_RANTWORKS */
+
 import { Config } from './wikipedia/config';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
