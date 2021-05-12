@@ -1,3 +1,5 @@
+/** @RH_RANTWORKS */
+
 import { WikipediaDataService } from 'src/app/wikipedia-data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

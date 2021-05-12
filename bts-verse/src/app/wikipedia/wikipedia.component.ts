@@ -1,3 +1,5 @@
+/** @RH_RANTWORKS */
+
 import { Config } from "./config";
 import { Component, OnInit } from "@angular/core";
 import { WikipediaDataService } from "src/app/wikipedia-data.service";

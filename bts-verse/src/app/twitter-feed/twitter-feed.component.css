@@ -6,7 +6,7 @@ body {
 }
 
 /* Formatting for widget title. */
-.widget-title {
+.widget-title { /** @RH_RANTWORKS */
   text-align: left;
   font-family: "Verdana", sans-serif;
   color: #3a3a3a;
@@ -60,7 +60,7 @@ img {
 }
 
 /* Icon formatting */
-.icon {
+.icon { /** @RH_RANTWORKS */
   clear: right;
   float: right;
   width: 40px;
