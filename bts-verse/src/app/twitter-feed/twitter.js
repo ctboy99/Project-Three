@@ -1,4 +1,4 @@
-const MAX_TWEETS = 10;
+const MAX_TWEETS = 100;
 
 const Database = require('./database.js');
 var chart = require('chart.js');
@@ -49,31 +49,28 @@ var docs = new Array();
 
 function parser(){
     db.connect()
+    db.removeRecords("TwitterData");
     var i = 0;
     var j = 0;
-    //app.get('/user_timeline', (req, response) => {
         Twitter 
         .get('/lists/statuses', params, function(error, tweets, response) {
-        //console.log(tweets);
         var x = JSON.parse(JSON.stringify(tweets));
-        //console.log(x);
-        //console.log(x[3].full_text);
-        // for (i = 0; i < x.length; i++) {
-        //    var temp = myCollection;
-        //    temp['profile_picture'] = x[i].user.profile_image_url;
-        //    temp['user_name'] = x[i].user.name;
-        //    temp['screen_name'] = x[i].user.screen_name;
-        //    temp['full_text'] = x[i].full_text;
-        //    temp['favorites'] = x[i].favorite_count;
-        //    temp['retweets'] = x[i].retweet_count;
-        //    temp['created_at'] = x[i].created_at;
-        //     docs.push(temp);
+        for (i = 0; i < x.length; i++) {
+            var temp = myCollection;
+            temp['profile_picture'] = x[i].user.profile_image_url;
+            temp['user_name'] = x[i].user.name;
+            temp['screen_name'] = x[i].user.screen_name;
+            temp['full_text'] = x[i].full_text;
+            temp['favorites'] = x[i].favorite_count;
+            temp['retweets'] = x[i].retweet_count;
+            temp['created_at'] = x[i].created_at;
+             docs.push(temp);
 
-        //      db.addToTwitterTable(docs[i].profile_picture, 
-        //          docs[i].user_name, docs[i].screen_name,
-        //          docs[i].full_text, docs[i].favorites,
-        //          docs[i].retweets, docs[i].created_at);
-        // }
+              db.addToTwitterTable(docs[i].profile_picture, 
+                  docs[i].user_name, docs[i].screen_name,
+                  docs[i].full_text, docs[i].favorites,
+                  docs[i].retweets, docs[i].created_at);
+        }
 
     })
     //db.quit()
