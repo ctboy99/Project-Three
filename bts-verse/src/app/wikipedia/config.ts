@@ -1,4 +1,5 @@
 /** Interface for interepreting the Wikipedia API */
+/** @RH_RANTWORKS*/
 export interface Config {
   type: string;
   title: string;
