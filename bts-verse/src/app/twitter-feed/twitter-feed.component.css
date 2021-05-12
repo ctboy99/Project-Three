@@ -6,7 +6,8 @@ body {
 }
 
 /* Formatting for widget title. */
-.widget-title { /** @RH_RANTWORKS */
+.widget-title {
+  /** @RH_RANTWORKS */
   text-align: left;
   font-family: "Verdana", sans-serif;
   color: #3a3a3a;
@@ -49,7 +50,7 @@ p {
 }
 
 img {
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .card-container {
@@ -60,7 +61,8 @@ img {
 }
 
 /* Icon formatting */
-.icon { /** @RH_RANTWORKS */
+.icon {
+  /** @RH_RANTWORKS */
   clear: right;
   float: right;
   width: 40px;

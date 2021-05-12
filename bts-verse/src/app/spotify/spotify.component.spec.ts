@@ -8,9 +8,8 @@ describe('SpotifyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpotifyComponent ]
-    })
-    .compileComponents();
+      declarations: [SpotifyComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

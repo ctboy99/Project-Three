@@ -1,17 +1,24 @@
+const MAX_TWEETS = 100;
 
-// var favorite_count;
-// var retweet_count;
-// var text;
-const info = new Array();
-var filled = new Array();
+const Database = require('./database.js');
+var chart = require('chart.js');
+
+var docs = new Array();
+
+//Chart = new chart(chart);
+var db = new Database();
+db.Connector(docs);
+
+
+const params = { tweet_mode: 'extended', count: MAX_TWEETS, list_id: "1389838980326301697", exclude: "retweets, replies" };
 
 // Printed number of streamed tweets filtered by name. 
-const MAX_TWEETS = 1;
 
 var date = new Date();
 var time = date.getUTCHours();
 console.log(time);
 
+var fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const Twit = require('twit');
@@ -25,73 +32,112 @@ const Twitter = new Twit({
     access_token: '1376962088116105220-pMloTeaypLOZ57opO1ai6ZNvXRpuJ1',
     access_token_secret: 'w8ZSJ862AmlcixPvLkHwoMi8mspYf4VMpWrh4TdHavwoe',
 
-// Pull tweets for an hour at noon, based on the screenname of the user.
+    // Pull tweets for an hour at noon, based on the screenname of the user.
 });
-    
-//if (time == 12) {
-    
-    //console.log(x);
 
+var myCollection = {
+    profile_picture: String,
+    user_name: String,
+    screen_name: String,
+    full_text: String,
+    favorites: Number,
+    retweets: Number,
+    created_at: String,
+    //last_retrieved: String,
+};
+var docs = new Array();
 
-    // console.log(x[0].created_at);
-    // console.log(x[0].text);
-    // if (x[0].favorite_count != 0) {
-    //     console.log(x[0].favorite_count);
-    // }
-    // console.log(x[0].retweet_count);
-    // console.log(x[0].user.profile_image_url);
-    // console.log(x[0].user.profile_banner_url);
+function parser() {
+    db.connect()
+    db.removeRecords("TwitterData");
+    var i = 0;
+    var j = 0;
+    Twitter
+        .get('/lists/statuses', params, function (error, tweets, response) {
+            var x = JSON.parse(JSON.stringify(tweets));
+            for (i = 0; i < x.length; i++) {
+                var temp = myCollection;
+                temp['profile_picture'] = x[i].user.profile_image_url;
+                temp['user_name'] = x[i].user.name;
+                temp['screen_name'] = x[i].user.screen_name;
+                temp['full_text'] = x[i].full_text;
+                temp['favorites'] = x[i].favorite_count;
+                temp['retweets'] = x[i].retweet_count;
+                temp['created_at'] = x[i].created_at;
+                docs.push(temp);
 
+                db.addToTwitterTable(docs[i].profile_picture,
+                    docs[i].user_name, docs[i].screen_name,
+                    docs[i].full_text, docs[i].favorites,
+                    docs[i].retweets, docs[i].created_at);
+            }
 
-
-    //console.log(x.user.followers_count);
- 
- function parser(){
+        })
+    //db.quit()
     app.get('/user_timeline', (req, response) => {
-        const params = { tweet_mode: 'extended', count: 10, list_id: "1389838980326301697" };
-        //app.get('statuses/user_timeline', {screen_name: "bts_twt", count: MAX_TWEETS}, function(err, data, response) {
-            // let arr = new Array();
-            // var x = JSON.parse(JSON.stringify(data));
-            // //console.log(x)
-            // var screen_name = x[0].user.screen_name;
-            // var created = x[0].created_at;
-            // //console.log(screen_name);
-            // var text = x[0].text;
-            // var favorite_count = x[0].favorite_count;
-            // var retweet_count = x[0].retweet_count;
-            // var profile_image = x[0].user.profile_image_url;
-            // var profile_banner = x[0].user.profile_banner_url; 
-            // adder(info, screen_name);
-            // adder(info, created);
-            // adder(info, text);
-            // adder(info, favorite_count);
-            // adder(info, retweet_count);
-            // adder(info, profile_image);
-            // adder(info, profile_banner);
-            // //console.log(getter(info, 2));  
-            // console.log(info);
-            //console.log(response);
-            Twitter 
+        async function call() {
+            var a = await db.getRecords("TwitterData");
+            var b = JSON.stringify(a);
+            var c = JSON.parse(b);
+            //console.log(a);
+            response.send(c);
+        }
+        call();
+        // for (let i = 0; i < a.length; i++) {
+        // temp['profile_picture'] = a[i].user.profile_image_url;
+        // temp['user_name'] = a[i].user.name;
+        // temp['screen_name'] = a[i].user.screen_name;
+        // temp['full_text'] = a[i].full_text;
+        // temp['favorites'] = a[i].favorite_count;
+        // temp['retweets'] = a[i].retweet_count;
+        // temp['created_at'] = a[i].created_at;
+        // }
+        // var string = JSON.stringify(a);
+        // var json = JSON.parse(string);
+        // response.send(json);
+        // console.log(json);
+        //response.send(a.map(myCollection));
+
+    })
+
+
+    //db.quit();
+
+}
+
+
+
+function localHost() {
+    app.get('/user_timeline', (req, response) => {
+        Twitter
             .get('/lists/statuses', params)
             .then(timeline => {
                 response.send(timeline);
-                //console.log(timeline);
+
             })
             .catch(error => {
                 response.send(error);
-            });
-            });
-        
-        }
+            })
 
-        parser();
-        
-        app.listen(3000, () => console.log("Server Running"))
 
-      
-//exporter();
-//console.log(exporter(info));
-//console.log(info);    
+    })
+
+};
+
+
+parser();
+listener();
+
+module.exports = parser;
+module.exports = listener;
+module.exports = myCollection;
+
+function listener() {
+    app.listen(3000, () => console.log("Server Running"));
+}
+
+
+
 
 function shifter(array1, array2) {
     for (x in array1) {
@@ -110,14 +156,14 @@ function adder(array, value) {
     return array;
 }
 
-exports.getCreated = function(){
+exports.getCreated = function () {
     return created.toString();
 }
-exports.getText = function(){
+exports.getText = function () {
     return text.toString();
 }
 
-   
+
     //console.log(x.response.user.followers_count);
     //console.log(x)
 
