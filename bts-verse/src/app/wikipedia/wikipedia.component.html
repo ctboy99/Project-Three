@@ -2,9 +2,6 @@
   <!-- Card title. -->
   <div class="widget-title">
     About BTS
-    <a href="https://en.wikipedia.org/wiki/BTS" title="BTS's Wikipedia Page"
-      ><var class="arrow">➚</var></a
-    >
   </div>
   <blockquote class="summary">From Wikipedia, the free encyclopedia</blockquote>
   <!-- Article body. -->
@@ -13,5 +10,6 @@
     <div [innerHTML]="extract_html"></div>
   </div>
   <!-- Timestamp of retrevial. -->
-  <div class="timestamp">Retrieved on {{ timestamp }}</div>
+  <div class="timestamp">Retrieved from <a href="https://en.wikipedia.org/wiki/BTS " target="_blank" title="BTS's Wikipedia Page"
+    >Wikipedia</a> on {{ timestamp }}</div>
 </body>
