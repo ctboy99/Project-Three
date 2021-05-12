@@ -3,7 +3,6 @@ import { Parser } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/internal/operators/map';
 
-declare function listener() : any;
  @Injectable({
    providedIn: 'root'
  })
@@ -16,7 +15,8 @@ export class TwitterService {
     getTimeline(){
       return this.http
       .get<any[]>(this.api_url + '/user_timeline', {responseType: 'json'})
-      //.pipe(map(data => data));
+      .pipe(map(data => data));
+
     }
    
 
