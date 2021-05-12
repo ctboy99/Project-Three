@@ -1,11 +1,21 @@
 const mysql = require('mysql');
+class myCollection {
+    profile_picture;
+    user_name;
+    screen_name; 
+    full_text;
+    favorites; 
+    retweets; 
+    created_at;
+    //last_retrieved: String,
+};
 //const twitter = require("./twitter.js");
-
 
 //const { resourceLimits } = require('node:worker_threads');
 
 class Database  {  
-     Connector() {
+    docs = new Array();
+    Connector(docs) {
          this.connection = mysql.createConnection({
             host: "bts-verse.cw824owciirp.us-east-1.rds.amazonaws.com",
             user: "admin",
@@ -13,6 +23,9 @@ class Database  {
             database: "btsverse",
         
         });  
+
+        this.docs = docs;
+
     }
 
 connect() {
@@ -25,13 +38,32 @@ quit() {
     console.log("Ended.")
 }
 
-
-getRecords(tableName) {
+getRecords = (tableName) =>  {
+    return new Promise(resolve => {
+    var docs = new Array();
+    var holder;
     var sql = "SELECT * FROM " + tableName;
     console.log("Done!");
-    return this.connection.query(sql, function(error, results, fields) {
-        console.log(results);
+    this.connection.query(sql, function(error, results, fields) {
+        //console.log(results);
+        for (let i = 0; i < results.length; i++) {
+            var temp = new myCollection();
+            temp['profile_picture'] = results[i].profile_picture;
+            temp['user_name'] = results[i].user_name;
+            temp['screen_name'] = results[i].screen_name;
+            temp['full_text'] = results[i].full_text;
+            temp['favorites'] = results[i].favorites;
+            temp['retweets'] = results[i].retweets;
+            temp['created_at'] = results[i].created_at;
+            docs.push(temp);
+        }
+        resolve(docs);
+
+        //console.log(this.docs);
     });
+
+})
+
 }
 
 removeRecords(tableName) {
@@ -78,16 +110,16 @@ addToTwitterTable(profile_pic, user_name, screen_name, full_text, favorites, ret
 
 }
 
-var db1 = new Database();
-db1.Connector();
-db1.connect();
+//var db1 = new Database();
+//db1.Connector();
+//db1.connect();
 //db1.dropTable("TwitterData")
 //db1.removeRecords("TwitterData");
 //db1.createTwitterTable();
-db1.getRecords("TwitterData");
+//db1.getRecords("TwitterData");
 // console.log(db1.getRecords("Twitter"));
 // console.log("Test");
-db1.quit();
+//db1.quit();
 //db1.connector();
 //console.log(db1.connection);
 module.exports = Database;

@@ -1,11 +1,13 @@
-const MAX_TWEETS = 100;
+const MAX_TWEETS = 10;
 
 const Database = require('./database.js');
 var chart = require('chart.js');
 
+var docs = new Array();
+
 //Chart = new chart(chart);
 var db = new Database();
-db.Connector();
+db.Connector(docs);
 
 
 const params = { tweet_mode: 'extended', count: MAX_TWEETS, list_id: "1389838980326301697", exclude: "retweets, replies" };
@@ -33,53 +35,78 @@ const Twitter = new Twit({
 // Pull tweets for an hour at noon, based on the screenname of the user.
 });
     
+var myCollection = {
+    profile_picture : String,
+    user_name : String,
+    screen_name : String, 
+    full_text : String,
+    favorites : Number, 
+    retweets : Number, 
+    created_at : String,
+    //last_retrieved: String,
+};
 var docs = new Array();
 
 function parser(){
     db.connect()
     var i = 0;
     var j = 0;
-    var myCollection = {
-        profile_picture : String,
-        user_name : String,
-        screen_name : String, 
-        full_text : String,
-        favorites : Number, 
-        retweets : Number, 
-        created_at : String,
-        //last_retrieved: String,
-    };
-    
+    //app.get('/user_timeline', (req, response) => {
         Twitter 
         .get('/lists/statuses', params, function(error, tweets, response) {
         //console.log(tweets);
         var x = JSON.parse(JSON.stringify(tweets));
-        console.log(x.length);
+        //console.log(x);
         //console.log(x[3].full_text);
-        for (i = 0; i < x.length; i++) {
-           var temp = myCollection;
-           temp['profile_picture'] = x[i].user.profile_image_url;
-           temp['user_name'] = x[i].user.screen_name;
-           temp['screen_name'] = x[i].user.screen_name;
-           temp['full_text'] = x[i].full_text;
-           temp['favorites'] = x[i].favorite_count;
-           temp['retweets'] = x[i].retweet_count;
-           temp['created_at'] = x[i].created_at;
-            docs.push(temp);
+        // for (i = 0; i < x.length; i++) {
+        //    var temp = myCollection;
+        //    temp['profile_picture'] = x[i].user.profile_image_url;
+        //    temp['user_name'] = x[i].user.name;
+        //    temp['screen_name'] = x[i].user.screen_name;
+        //    temp['full_text'] = x[i].full_text;
+        //    temp['favorites'] = x[i].favorite_count;
+        //    temp['retweets'] = x[i].retweet_count;
+        //    temp['created_at'] = x[i].created_at;
+        //     docs.push(temp);
 
-            db.addToTwitterTable(docs[i].profile_picture, 
-                docs[i].user_name, docs[i].screen_name,
-                docs[i].full_text, docs[i].favorites,
-                docs[i].retweets, docs[i].created_at);
-
-
-           console.log(docs[0]);
-        }
-        db.quit();
+        //      db.addToTwitterTable(docs[i].profile_picture, 
+        //          docs[i].user_name, docs[i].screen_name,
+        //          docs[i].full_text, docs[i].favorites,
+        //          docs[i].retweets, docs[i].created_at);
+        // }
 
     })
+    //db.quit()
+        app.get('/user_timeline', (req, response) => {
+            async function call() {
+            var a = await db.getRecords("TwitterData");
+            var b = JSON.stringify(a);
+            var c = JSON.parse(b);
+            //console.log(a);
+            response.send(c);
+            }
+            call();
+            // for (let i = 0; i < a.length; i++) {
+            // temp['profile_picture'] = a[i].user.profile_image_url;
+            // temp['user_name'] = a[i].user.name;
+            // temp['screen_name'] = a[i].user.screen_name;
+            // temp['full_text'] = a[i].full_text;
+            // temp['favorites'] = a[i].favorite_count;
+            // temp['retweets'] = a[i].retweet_count;
+            // temp['created_at'] = a[i].created_at;
+            // }
+            // var string = JSON.stringify(a);
+            // var json = JSON.parse(string);
+            // response.send(json);
+            // console.log(json);
+                //response.send(a.map(myCollection));
+            
+        })
+          
 
-};
+//db.quit();
+
+}
 
 
  
@@ -101,11 +128,12 @@ function parser(){
     }; 
     
     
-    parser2();
-
+    parser();
+    listener();
      
         module.exports = parser; 
         module.exports = listener; 
+        module.exports = myCollection;
 
         function listener() {
         app.listen(3000, () => console.log("Server Running"));
