@@ -8,19 +8,17 @@
   <h4>
     <p
       class="twitter-timeline"
-      href="https://twitter.com/BTS_twt?ref_src=twsrc%5Etfw" target="_blank"
+      href="https://twitter.com/BTS_twt?ref_src=twsrc%5Etfw"
+      target="_blank"
     >
       Tweets by @BTS_twt and @BTS_bighit:
     </p>
   </h4>
 
-
-
   <br />
   <div *ngIf="undefined === this.timeline">Loading...</div>
   <div *ngIf="undefined !== this.timeline">
     <div class="card-container">
-    
       <ng-container *ngFor="let tweets of this.timeline; let i = index">
         <div class="card">
           <br />
@@ -29,30 +27,26 @@
           </h3>
           <p>
             <img src="{{ tweets.profile_picture }}" />
-            {{ tweets.user_name }}
+            {{ tweets.userName }}
           </p>
           <p>@{{ tweets.screen_name }}</p>
-          <p>Tweeted: {{ tweets.full_text }}</p>
+          <p>Tweeted: {{ tweets.fullText }}</p>
           <p>
             <img src="./assets/images/Likes.png" width="35" height="35" />{{
               tweets.favorites
             }}
 
-          &nbsp;
+            &nbsp;
 
-        
             <img src="./assets/images/Retweets.jpg" width="30" height="30" />
             {{ tweets.retweets }}
           </p>
-          <p>Created at: {{ tweets.created_at }}</p>
+          <p>Created at: {{ tweets.createdAt }}</p>
 
           <br />
         </div>
       </ng-container>
     </div>
-    <div class="timestamp">
-      Last Retrieved: {{ "12:00pm EST" }}
-    </div>
+    <div class="timestamp">Last Retrieved: {{ "12:00pm EST" }}</div>
   </div>
 </body>
-

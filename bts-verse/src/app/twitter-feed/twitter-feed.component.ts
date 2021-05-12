@@ -2,28 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import Tweet from './Tweets';
 import { TwitterService } from './twitterservice.service';
 
-declare function parser() : any; 
-declare function getRecords(name : any) : any;
-declare var Tweets : Tweet[];
-declare var data : any;
+declare function parser(): any;
+declare function getRecords(name: any): any;
+declare var Tweets: Tweet[];
+declare var data: any;
 
 @Component({
   selector: 'app-twitter-feed',
   templateUrl: './twitter-feed.component.html',
-  styleUrls: ['./twitter-feed.component.css']
+  styleUrls: ['./twitter-feed.component.css'],
 })
 export class TwitterFeedComponent implements OnInit {
-  data : any;
-
-  
+  data: any;
   timeline: any;
-  holder : any;
-  constructor(private api: TwitterService) {
-   }
+  holder: any;
+  constructor(private api: TwitterService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getTwitterTimeline();
-    
   }
 
   // setTwitterTimeline() : void {
@@ -31,7 +27,7 @@ export class TwitterFeedComponent implements OnInit {
   //   var db1 = new Database();
   //   db1.Connector();
   //   db1.connect();
-  //   this.data = db1.getRecords("TwitterData");
+  //   this.data = db1.getRecords('TwitterData');
   //   for (let i = 0; i < this.data.length; i++) {
   //     var temp = new Tweet();
   //       temp.profile_picture = this.data[i].user.profile_picture,
@@ -48,19 +44,12 @@ export class TwitterFeedComponent implements OnInit {
   //       db1.quit();
   //   }
 
-
-
-  getTwitterTimeline(): void  {
-    //create();
-    //parser();
-    this.api.getTimeline()
-    .subscribe(
-      timeline => {
-        this.timeline = timeline;
-        console.log(this.timeline);
-        
-      }
-    )
-
+  getTwitterTimeline(): void {
+    // create();
+    // parser();
+    this.api.getTimeline().subscribe((timeline: any) => {
+      this.timeline = timeline;
+      console.log(this.timeline);
+    });
   }
 }
