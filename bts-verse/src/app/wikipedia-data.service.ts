@@ -12,13 +12,13 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 export class WikipediaDataService {
 
-  private WIKI_URL = "https://en.wikipedia.org/api/rest_v1/page/summary/BTS";
+  private WIKI_URL = 'https://en.wikipedia.org/api/rest_v1/page/summary/BTS';
 
   constructor(
     private http: HttpClient,
   ) {}
 
-  public getRequest() {
+  public getRequest(): any {
     return this.http.get<Config>(this.WIKI_URL, {observe: 'body', responseType: 'json'});
   }
 
