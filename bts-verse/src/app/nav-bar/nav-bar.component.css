@@ -1,22 +1,18 @@
 /* Set background color */
 body {
   background-color: lavender;
+  padding-top: 25px;
 }
-
 /* Formatting for header. */
-.header {
-  color: #252525;
-  font-size: 60px;
   text-align: left;
   font-family: "Verdana";
   letter-spacing: 5px;
-}
-
-/* Icon image formatting. */
-.logo {
-  width: 100px;
-  height: 100px;
+  z-index: 9999999;
+  position: sticky;
+  top: 0;
+  background-color: lavender;
   padding: 5px;
+}ding: 5px;
 }
 
 .icon {
