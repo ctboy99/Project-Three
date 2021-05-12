@@ -17,6 +17,13 @@ body {
   padding: 5px;
 }
 
+/* Icon image formatting. */
+.logo {
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+}
+
 .icon {
   width: 60px;
   height: 60px;
