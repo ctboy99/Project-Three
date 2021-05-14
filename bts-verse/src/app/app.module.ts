@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { YoutubeComponent } from './youtube/youtube.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { WikipediaComponent } from './wikipedia/wikipedia.component';
 import { SpotifyComponent } from './spotify/spotify.component';
+import { BarchartComponent } from './barchart/barchart.component';
 
 const appRoutes: Routes = [
   {
@@ -34,11 +36,13 @@ const appRoutes: Routes = [
     NavBarComponent,
     WikipediaComponent,
     SpotifyComponent,
+    BarchartComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ChartsModule,
   ],
   providers: [WikipediaDataService],
   bootstrap: [AppComponent]

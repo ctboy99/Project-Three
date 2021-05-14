@@ -12,11 +12,10 @@ export class TwitterService {
   constructor(private http: HttpClient) {}
 
   getTimeline(): any {
-    return this.http.get<any[]>(this.apiURL + '/user_timeline', {
-      responseType: 'json',
-    });
-    // .pipe(map(data => data));
+    return this.http.get<any[]>(this.apiURL + '/twitter/api', { responseType: 'json' })
+    .pipe(map(data => data));
   }
+
 
   getMentions(): any {
     return this.http

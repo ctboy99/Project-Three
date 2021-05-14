@@ -74,7 +74,7 @@ function parser() {
 
         })
     //db.quit()
-    app.get('/user_timeline', (req, response) => {
+    app.get('/twitter/api', (req, response) => {
         async function call() {
             var a = await db.getRecords("TwitterData");
             var b = JSON.stringify(a);
