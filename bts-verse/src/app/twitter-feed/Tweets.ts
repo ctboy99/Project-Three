@@ -1,9 +1,9 @@
 export default class Tweet {
-  profilePicture: string | undefined;
-  userName: string | undefined;
-  screenName: string | undefined;
-  fullText: string | undefined;
+  profile_picture: string | undefined;
+  user_name: string | undefined;
+  screen_name: string | undefined;
+  full_text: string | undefined;
   favorites: string | undefined;
   retweets: string | undefined;
-  createdAt: string | undefined;
+  created_at: string | undefined;
 }

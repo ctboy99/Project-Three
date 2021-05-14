@@ -48,13 +48,13 @@ class Database {
                 //console.log(results);
                 for (let i = 0; i < results.length; i++) {
                     var temp = new myCollection();
-                    temp['profilePicture'] = results[i].profilePicture;
-                    temp['userName'] = results[i].userName;
-                    temp['screenName'] = results[i].screenName;
-                    temp['fullText'] = results[i].fullText;
+                    temp['profile_picture'] = results[i].profile_picture;
+                    temp['user_name'] = results[i].user_name;
+                    temp['screen_name'] = results[i].screen_name;
+                    temp['full_text'] = results[i].full_text;
                     temp['favorites'] = results[i].favorites;
                     temp['retweets'] = results[i].retweets;
-                    temp['createdAt'] = results[i].createdAt;
+                    temp['created_at'] = results[i].created_at;
                     docs.push(temp);
                 }
                 resolve(docs);
