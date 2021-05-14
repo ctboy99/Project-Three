@@ -1,9 +1,9 @@
 export default class Tweet {
-  profile_picture!: String;
-  user_name!: String;
-  screen_name!: String;
-  full_text!: String;
-  favorites!: any;
+  profile_picture!: string;
+  user_name!: string;
+  screen_name!: string;
+  full_text!: string;
+  favorites!: string;
   retweets!: any;
-  created_at!: String;
+  created_at!: string;
 }
