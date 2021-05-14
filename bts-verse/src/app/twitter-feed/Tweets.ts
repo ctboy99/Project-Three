@@ -4,6 +4,6 @@ export default class Tweet {
   screen_name!: string;
   full_text!: string;
   favorites!: string;
-  retweets!: any;
+  retweets!: number;
   created_at!: string;
 }

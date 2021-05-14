@@ -40,10 +40,10 @@ var myCollection = {
     user_name: String,
     screen_name: String,
     full_text: String,
-    favorites: Number,
+    favorites: String,
     retweets: Number,
     created_at: String,
-    //last_retrieved: String,
+    //last_retrieved: string,
 };
 var docs = new Array();
 
@@ -74,7 +74,7 @@ function parser() {
 
         })
     //db.quit()
-    app.get('/twitter/api', (req, response) => {
+    app.get('/user_timeline', (req, response) => {
         async function call() {
             var a = await db.getRecords("TwitterData");
             var b = JSON.stringify(a);
