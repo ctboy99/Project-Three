@@ -1,12 +1,12 @@
 const mysql = require('mysql');
 class myCollection {
-    profilePicture;
-    userName;
-    screenName;
-    fullText;
+    profile_picture;
+    user_name;
+    screen_name;
+    full_text;
     favorites;
     retweets;
-    createdAt;
+    created_at;
     //last_retrieved: String,
 };
 //const twitter = require("./twitter.js");
@@ -97,10 +97,10 @@ class Database {
         console.log(sql);
     }
 
-    addToTwitterTable(profile_pic, user_name, screen_name, full_text, favorites, retweets, created) {
+    addToTwitterTable(profile_pic, user_name, screen_name, full_text, favorites, retweets, created_at) {
         var final = full_text.toString().replace(/['`]/g, "");
         final.trim();
-        var sql = "INSERT INTO TwitterData (profile_picture, user_name, screen_name, full_text, favorites, retweets, created_at) VALUES (" + "'" + profile_pic.toString() + "'" + "," + " " + "'" + user_name.toString() + "'" + "," + " " + "'" + screen_name.toString() + "'" + "," + " " + "'" + final.toString() + "'" + "," + " " + "'" + favorites.toString() + "'" + "," + " " + "'" + retweets.toString() + "'" + "," + " " + "'" + created.toString() + "')";
+        var sql = "INSERT INTO TwitterData (profile_picture, user_name, screen_name, full_text, favorites, retweets, created_at) VALUES (" + "'" + profile_pic.toString() + "'" + "," + " " + "'" + user_name.toString() + "'" + "," + " " + "'" + screen_name.toString() + "'" + "," + " " + "'" + final.toString() + "'" + "," + " " + "'" + favorites.toString() + "'" + "," + " " + "'" + retweets.toString() + "'" + "," + " " + "'" + created_at.toString() + "')";
         this.connection.query(sql, function (err, result) {
             if (err) throw err;
             console.log(result);
