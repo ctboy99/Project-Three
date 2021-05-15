@@ -26,13 +26,13 @@ export class BarchartComponent implements OnInit {
   barChartOptions: ChartOptions = {
     responsive: true,
   };
-  barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
+  barChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May'];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartPlugins = [];
 
   barChartData: ChartDataSets[] = [
-    { data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' }
+    { data: [45, 37, 60, 70, 46, 33], label: 'Favorites' }
   ];
 
   constructor(private http: HttpClient, private api: TwitterService) { }  

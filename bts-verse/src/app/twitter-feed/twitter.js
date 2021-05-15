@@ -20,6 +20,7 @@ var date = new Date();
 var time = date.getUTCHours();
 console.log(time);
 
+const writeJsonFile = require('write-json-file');
 var fs = require('fs');
 const express = require('express');
 const cors = require('cors');
@@ -79,15 +80,18 @@ function parser() {
 
         })
     //db.quit()
-    app.get('/user_timeline', (req, response) => {
+    app.get('/twitter/api', (req, response) => {
         async function call() {
             var a = await db.getRecords("TwitterData");
             var b = JSON.stringify(a);
             var c = JSON.parse(b);
             //console.log(a);
+            fs.writeFile('mydata.json', b, function(err, res) {
+                if (err) console.log(err);
             response.send(c);
         
-        }
+        })
+    }
     
         call();
         // for (let i = 0; i < a.length; i++) {
