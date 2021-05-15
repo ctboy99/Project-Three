@@ -11,13 +11,14 @@ declare function listener(): any;
   providedIn: 'root',
 })
 export class TwitterService {
+  default: null;
   tweets: Tweet[] = [];
   apiURL = './mydata.json';
   constructor(private http: HttpClient) {}
 
-  getTimeline(): any {
+  getTimeline(): Tweet[] {
     //console.log(mydata);
-     return mydata.default
+     return mydata.default;
      //.pipe(map(data => data));
   }
   

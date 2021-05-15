@@ -87,9 +87,7 @@ function parser() {
             var c = JSON.parse(b);
             //console.log(a);
             fs.writeFile('mydata.json', b, function(err, res) {
-                if (err) console.log(err);
-            response.send(c);
-        
+                if (err) console.log(err);        
         })
     }
     

@@ -38,7 +38,7 @@ export class BarchartComponent implements OnInit {
   constructor(private http: HttpClient, private api: TwitterService) { }  
 
   ngOnInit() {  
-    this.api.getTimeline().subscribe((result: Tweets[]) => {
+    this.api.getJSON().subscribe((result: Tweets[]) => {
       this.results = result;
       Array.from(result).forEach(x => {  
         this.Dates.push(x.created_at);
