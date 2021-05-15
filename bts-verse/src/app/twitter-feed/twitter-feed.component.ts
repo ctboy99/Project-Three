@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import Tweet from './Tweets';
+import Tweets  from './Tweets';
 import { TwitterService } from './twitterservice.service';
 import * as mydata from './mydata.json';
 
 declare var require: any
 declare function parser(): any;
 declare function getRecords(name: any): any;
-declare var Tweets: Tweet[];
+//declare var Tweets: Tweets[];
 @Component({
   selector: 'app-twitter-feed',
   templateUrl: './twitter-feed.component.html',

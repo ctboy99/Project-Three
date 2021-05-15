@@ -19,7 +19,7 @@
   <div *ngIf="undefined === this.timeline">Loading...</div>
   <div *ngIf="undefined !== this.timeline">
     <div class="card-container">
-      <ng-container *ngFor="let tweets of this.timeline; let i = index">
+      <ng-container *ngFor="let tweets of this.timeline.default; let i = index">
         <div class="card">
           <br />
           <h3>

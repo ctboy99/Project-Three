@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';  
 import { Chart } from 'chart.js';  
 import { HttpClient } from '@angular/common/http';  
-import Tweets from 'src/app/twitter-feed/Tweets';  
+import  Tweets  from 'src/app/twitter-feed/Tweets';  
 import { TwitterService } from '../twitter-feed/twitterservice.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';

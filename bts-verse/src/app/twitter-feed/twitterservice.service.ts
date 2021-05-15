@@ -3,7 +3,7 @@ import { Parser } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
-import Tweet from './Tweets';
+import Tweets from './Tweets';
 import * as mydata from "./mydata.json";
 
 declare function listener(): any;
@@ -12,13 +12,15 @@ declare function listener(): any;
 })
 export class TwitterService {
   default: null;
-  tweets: Tweet[] = [];
+  tweets: Tweets[] = [];
   apiURL = './mydata.json';
   constructor(private http: HttpClient) {}
 
-  getTimeline(): Tweet[] {
+  getTimeline(): Tweets[] {
     //console.log(mydata);
-     return mydata.default;
+    const Data = JSON.parse(JSON.stringify(mydata));
+    //console.log(Data);
+     return Data;
      //.pipe(map(data => data));
   }
   
