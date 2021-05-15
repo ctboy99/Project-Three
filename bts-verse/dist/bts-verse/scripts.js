@@ -1,4 +1,6 @@
 const MAX_TWEETS = 100;
+path = require('path');
+var Root = __dirname + '/';
 
 const Database = require('./database.js');
 var chart = require('chart.js');
@@ -24,6 +26,9 @@ const cors = require('cors');
 const Twit = require('twit');
 const app = express();
 app.use(cors());
+
+var stream = fs.createWriteStream('Data.json', {flags: 'a'});
+
 
 // Twitter API Connection
 const Twitter = new Twit({
@@ -81,7 +86,9 @@ function parser() {
             var c = JSON.parse(b);
             //console.log(a);
             response.send(c);
+        
         }
+    
         call();
         // for (let i = 0; i < a.length; i++) {
         // temp['profile_picture'] = a[i].user.profile_image_url;
