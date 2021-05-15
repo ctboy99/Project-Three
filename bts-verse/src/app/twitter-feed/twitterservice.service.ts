@@ -13,9 +13,9 @@ export class TwitterService {
 
   getTimeline(): any {
     return this.http.get<any[]>(this.apiURL + '/twitter/api', { responseType: 'json' })
-    .pipe(map(data => data));
+    //.pipe(map(data => data));
   }
-
+  
 
   getMentions(): any {
     return this.http
