@@ -24,7 +24,7 @@ body {
 .spotify-container iframe {
   border: 0;
   left: 0;
-  height: 300px;
+  height: 260px;
   position: relative;
   top: 0;
   width: 100%;
@@ -38,6 +38,7 @@ body {
 }
 
 /* Icon formatting */
+
 .icon {
   clear: right;
   float: right;

@@ -58,6 +58,7 @@ body {
     height: 1000px;
     overflow-y: scroll;
     background-color: #e6e6fa;
+    margin: 10px;
   }
   
   /* Icon formatting */

@@ -1,49 +1,30 @@
 <body>
   <div class="widget-title">
     Twitter
-    <a href="https://twitter.com/bts_twt" target="_blank">
-      <img class="icon" src="assets/images/twitter.png" alt="BTS's Twitter" />
+    <span class="multi-icon"><a href="https://twitter.com/bts_twt" target="_blank">
+      <img class="icon" src="assets/images/bts_twt.png" alt="BTS_Twt Twitter" />
     </a>
+    <a href="https://twitter.com/bts_bighit" target="_blank">
+      <img class="icon" src="assets/images/bts_bighit.png" alt="BTS Official Twitter" />
+    </a>
+  </span>
   </div>
-  <h4>
-    <p
-      class="twitter-timeline"
-      href="https://twitter.com/BTS_twt?ref_src=twsrc%5Etfw"
-      target="_blank"
-    >
-      Tweets by @BTS_twt and @BTS_bighit:
-    </p>
-  </h4>
-
-  <br />
   <div *ngIf="undefined === this.timeline">Loading...</div>
   <div *ngIf="undefined !== this.timeline">
     <div class="card-container">
       <ng-container *ngFor="let tweets of this.timeline.default; let i = index">
         <div class="card">
-          <br />
-          <h3>
-            <div class="center">Tweet {{ i + 1 }}</div>
-          </h3>
           <p>
-            <img src="{{ tweets.profile_picture }}" />
-            {{ tweets.user_name }}
-          </p>
-          <p>@{{ tweets.screen_name }}</p>
+            <img src="{{ tweets.profile_picture }}" />&nbsp; <b>{{ tweets.user_name }}</b> @{{ tweets.screen_name }}</p>
           <p>Tweeted: {{ tweets.full_text }}</p>
           <p>
             <img src="./assets/images/Likes.png" width="35" height="35" />{{
               tweets.favorites
             }}
-
-            &nbsp;
-
             <img src="./assets/images/Retweets.jpg" width="30" height="30" />
             {{ tweets.retweets }}
           </p>
-          <p>Created at: {{ tweets.created_at }}</p>
-
-          <br />
+          <p>Posted: {{ tweets.created_at }}</p>
         </div>
       </ng-container>
     </div>

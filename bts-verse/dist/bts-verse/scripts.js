@@ -2,14 +2,13 @@ const MAX_TWEETS = 100;
 path = require('path');
 var Root = __dirname + '/';
 
-const Database = require('./database.js');
 var chart = require('chart.js');
 
 var docs = new Array();
 
 //Chart = new chart(chart);
-var db = new Database();
-db.Connector(docs);
+const Database = require('./database.js');
+
 
 
 const params = { tweet_mode: 'extended', count: MAX_TWEETS, list_id: "1389838980326301697", exclude: "retweets, replies" };
@@ -27,8 +26,6 @@ const cors = require('cors');
 const Twit = require('twit');
 const app = express();
 app.use(cors());
-
-var stream = fs.createWriteStream('Data.json', {flags: 'a'});
 
 
 // Twitter API Connection
@@ -53,7 +50,11 @@ var myCollection = {
 };
 var docs = new Array();
 
-function parser() {
+async function parser() {
+    const Database = require('./database.js');
+    console.log("Hello");
+    var db = new Database();
+    db.Connector(docs);
     db.connect()
     db.removeRecords("TwitterData");
     var i = 0;
@@ -78,39 +79,24 @@ function parser() {
                     docs[i].retweets, docs[i].created_at);
             }
 
-        })
+     
     //db.quit()
-    app.get('/twitter/api', (req, response) => {
+    //app.get('/twitter/api', (req, response) => {
         async function call() {
             var a = await db.getRecords("TwitterData");
             var b = JSON.stringify(a);
             var c = JSON.parse(b);
             //console.log(a);
-            fs.writeFile('mydata.json', b, function(err, res) {
-                if (err) console.log(err);        
+            await fs.writeFile('mydata.json', '', function(){console.log('JSON Cleared.')})
+            await fs.writeFile('mydata.json', b, function(err, res) {
+                if (err) console.log(err);  
+                console.log("JSON Filled.")      
         })
     }
+    call();
+
+})
     
-        call();
-        // for (let i = 0; i < a.length; i++) {
-        // temp['profile_picture'] = a[i].user.profile_image_url;
-        // temp['user_name'] = a[i].user.name;
-        // temp['screen_name'] = a[i].user.screen_name;
-        // temp['full_text'] = a[i].full_text;
-        // temp['favorites'] = a[i].favorite_count;
-        // temp['retweets'] = a[i].retweet_count;
-        // temp['created_at'] = a[i].created_at;
-        // }
-        // var string = JSON.stringify(a);
-        // var json = JSON.parse(string);
-        // response.send(json);
-        // console.log(json);
-        //response.send(a.map(myCollection));
-
-    })
-
-
-    //db.quit();
 
 }
 
@@ -135,7 +121,8 @@ function localHost() {
 
 
 parser();
-listener();
+//call();
+//listener();
 
 module.exports = parser;
 module.exports = listener;
