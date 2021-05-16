@@ -24,7 +24,6 @@ export class TwitterFeedComponent implements OnInit {
   constructor(private api: TwitterService) {}
 
   ngOnInit(): void {
-    //parser();
     this.getTwitterTimeline();
     //console.log(mydata);
   }
@@ -59,7 +58,6 @@ export class TwitterFeedComponent implements OnInit {
 
   getTwitterTimeline(): void {
     // create();
-    // parser();
     //this.api.getTimeline().subscribe((timeline: any) => {
       this.timeline = this.api.getTimeline();
       console.log(this.timeline);
