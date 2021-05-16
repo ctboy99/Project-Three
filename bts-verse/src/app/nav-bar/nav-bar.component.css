@@ -3,7 +3,9 @@
 /* Set background color */
 body {
   background-color: lavender;
-  padding-top: 25px;
+  z-index: 9999999;
+  position: sticky;
+  top: 0;
 }
 /* Formatting for header. */
 .header {
@@ -12,11 +14,8 @@ body {
   text-align: left;
   font-family: "Verdana";
   letter-spacing: 5px;
-  z-index: 9999999;
-  position: sticky;
-  top: 0;
   background-color: lavender;
-  padding: 5px;
+  display: inline;
 }
 
 /* Icon image formatting. */
@@ -38,6 +37,7 @@ body {
 }
 
 .icon-bar {
+  margin-top: 7px;
   float: right;
-  clear: right;
+  display: inline;
 }
