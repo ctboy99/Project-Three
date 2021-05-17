@@ -47,6 +47,9 @@ export class BarchartComponent implements OnInit {
         this.Favorites.push(result.favorites);  
         this.Retweets.push(result.retweets);
       })
+      this.Dates = this.Dates.reverse();
+      this.Favorites = this.Favorites.reverse();
+      this.Retweets = this.Retweets.reverse();
   
       console.log(this.Dates);
   }
