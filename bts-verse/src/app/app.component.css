@@ -1,7 +1,7 @@
 body {
   background-color: lavender;
   padding: 1px;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 h1 {
   text-align: center;
@@ -57,11 +57,13 @@ p {
 @media screen and (max-width: 767px) {
   .column1 {
     width: 100%;
-    padding: 10px;
+    padding: 40px;
+    padding-bottom: 10px;
   }
   .column2 {
     width: 100%;
-    padding: 10px;
+    padding: 40px;
+    padding-top: 10px;
   }
   .disappear {
     display: none !important;

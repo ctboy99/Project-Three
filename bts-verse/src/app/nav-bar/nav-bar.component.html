@@ -1,12 +1,7 @@
 <!-- @RH_RANTWORKS -->
 <!-- Creates the header. -->
 <body>
-  <div class="header" , id="header">
-    <span class="title">
-      <!-- Site icon and name. -->
-      <img class="logo" src="assets/images/bts-verse-logo.png" alt="Logo" />
-      BTS-VERSE
-    </span>
+  <div class="header" id="myHeader">
     <span class="icon-bar">
       <a href="https://twitter.com/bts_twt" target="_blank">
         <img class="icon" src="assets/images/twitter.png" alt="BTS's Twitter" />
@@ -45,23 +40,26 @@
         <img class="icon" src="assets/images/tiktok.png" alt="BTS's Tiktok" />
       </a>
     </span>
+    <div class="title">
+      <!-- Site icon and name. -->
+      <img class="logo" src="assets/images/bts-verse-logo.png" alt="Logo" />
+      BTS-VERSE
+    </div>
   </div>
-  <div style="clear: right"></div>
-</body>
+  <script>
+    window.onscroll = function () {
+      myFunction();
+    };
 
-<script>
-  window.onscroll = function () {
-    myFunction();
-  };
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
 
-  var header = document.getElementById("header");
-  var sticky = header.offsetTop;
-
-  function myFunction() {
-    if (window.pageYOffset > sticky) {
-      header.classList.add("sticky");
-    } else {
-      header.classList.remove("sticky");
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
     }
-  }
-</script>
+  </script>
+</body>
