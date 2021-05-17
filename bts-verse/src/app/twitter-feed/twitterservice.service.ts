@@ -6,7 +6,7 @@ import { map } from 'rxjs/internal/operators/map';
 import Tweets from './Tweets';
 import * as mydata from "./mydata.json";
 
-declare function listener(): any;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,7 +20,7 @@ export class TwitterService {
     //console.log(mydata);
     const Data = JSON.parse(JSON.stringify(mydata));
     //console.log(Data);
-     return Data;
+     return Data.default;
      //.pipe(map(data => data));
   }
   

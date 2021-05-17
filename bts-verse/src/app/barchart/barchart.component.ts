@@ -20,32 +20,35 @@ export class BarchartComponent implements OnInit {
   Retweets : any[] = [];
   barchart : Chart[] = [];  
   results : Tweets[] = [];
+  result : Tweets = new Tweets;
   //ctx = document.getElementById("canvas").getContext('2d');
 
 
   barChartOptions: ChartOptions = {
     responsive: true,
   };
-  barChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May'];
+  barChartLabels: Label[] = this.Dates;
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartPlugins = [];
 
   barChartData: ChartDataSets[] = [
-    { data: [45, 37, 60, 70, 46, 33], label: 'Favorites' }
+    { data: this.Favorites, label: 'Favorites' },
+    { data: this.Retweets, label: 'Retweets'}
   ];
 
   constructor(private http: HttpClient, private api: TwitterService) { }  
 
   ngOnInit() {  
-    this.api.getJSON().subscribe((result: Tweets[]) => {
-      this.results = result;
-      Array.from(result).forEach(x => {  
-        this.Dates.push(x.created_at);
-        this.Favorites.push(x.favorites);  
-        this.Retweets.push(x.retweets);
-      });  
-    })
+      this.results = (this.api.getTimeline());
+      //console.log(this.results.default.created_at);
+      this.results.forEach(result => {
+        this.Dates.push(result.created_at);
+        this.Favorites.push(result.favorites);  
+        this.Retweets.push(result.retweets);
+      })
+  
+      console.log(this.Dates);
   }
     //  created = {
     //     type: 'bar',  
