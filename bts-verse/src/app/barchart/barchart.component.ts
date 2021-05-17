@@ -28,7 +28,7 @@ export class BarchartComponent implements OnInit {
     responsive: true,
   };
   barChartLabels: Label[] = this.Dates;
-  barChartType: ChartType = 'bar';
+  barChartType: ChartType = 'line';
   barChartLegend = true;
   barChartPlugins = [];
 
