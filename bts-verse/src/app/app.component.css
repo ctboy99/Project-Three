@@ -1,6 +1,7 @@
 body {
   background-color: lavender;
-  padding: 20px;
+  padding: 1px;
+  overflow-x: hidden
 }
 h1 {
   text-align: center;
@@ -34,14 +35,16 @@ p {
 .column1 {
   float: left;
   width: 40%;
-  padding: 25px;
-  padding-right: 12.5px;
+  padding: 50px;
+  padding-right: 20px;
+  margin-top: 0;
 }
 .column2 {
   float: left;
   width: 60%;
-  padding: 25px;
-  padding-left: 12.5px;
+  padding: 50px;
+  padding-left: 20px;
+  margin-top: 0;
 }
 
 /* Clear floats after the columns */
@@ -51,9 +54,17 @@ p {
   clear: both;
 }
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
+@media screen and (max-width: 767px) {
+  .column1 {
     width: 100%;
+    padding: 10px;
+  }
+  .column2 {
+    width: 100%;
+    padding: 10px;
+  }
+  .disappear {
+    display: none !important;
   }
 }
 
@@ -65,3 +76,5 @@ p {
   text-align: center;
   font-size: 24px;
 }
+
+* {background-color: lavender}

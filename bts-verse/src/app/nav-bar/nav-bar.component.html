@@ -1,32 +1,67 @@
 <!-- @RH_RANTWORKS -->
 <!-- Creates the header. -->
 <body>
-<span class="icon-bar">
-  <a href="https://twitter.com/bts_twt" target="_blank">
-    <img class="icon" src="assets/images/twitter.png" alt="BTS's Twitter" />
-  </a>
-  <a href="https://www.facebook.com/bangtan.official/" target="_blank">
-    <img class="icon" src="assets/images/facebook.png" alt="BTS's Facebook" />
-  </a>
-  <a href="https://www.instagram.com/bts.bighitofficial/" target="_blank">
-    <img class="icon" src="assets/images/instagram.png" alt="BTS's Instagram" />
-  </a>
-  <a href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" target="_blank">
-    <img class="icon" src="assets/images/spotify.png" alt="BTS's Spotify" />
-  </a>
-  <a href="http://soundcloud.com/bangtan" target="_blank">
-    <img class="icon" src="assets/images/soundcloud.png" alt="BTS's SoundCloud" />
-  </a>
-  <a href="https://www.youtube.com/user/BANGTANTV" target="_blank">
-    <img class="icon" src="assets/images/youtube.png" alt="BTS's Youtube" />
-  </a>
-  <a href="https://www.tiktok.com/@bts_official_bighit" target="_blank">
-    <img class="icon" src="assets/images/tiktok.png" alt="BTS's Tiktok" />
-  </a>
-</span>
-<div class="header">
-  <!-- Site icon and name. -->
-  <img class="logo" src="assets/images/bts-verse-logo.png" alt="Logo" />
-    BTS-VERSE
-</div>
+  <div class="header" , id="header">
+    <span class="title">
+      <!-- Site icon and name. -->
+      <img class="logo" src="assets/images/bts-verse-logo.png" alt="Logo" />
+      BTS-VERSE
+    </span>
+    <span class="icon-bar">
+      <a href="https://twitter.com/bts_twt" target="_blank">
+        <img class="icon" src="assets/images/twitter.png" alt="BTS's Twitter" />
+      </a>
+      <a href="https://www.facebook.com/bangtan.official/" target="_blank">
+        <img
+          class="icon"
+          src="assets/images/facebook.png"
+          alt="BTS's Facebook"
+        />
+      </a>
+      <a href="https://www.instagram.com/bts.bighitofficial/" target="_blank">
+        <img
+          class="icon"
+          src="assets/images/instagram.png"
+          alt="BTS's Instagram"
+        />
+      </a>
+      <a
+        href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX"
+        target="_blank"
+      >
+        <img class="icon" src="assets/images/spotify.png" alt="BTS's Spotify" />
+      </a>
+      <a href="http://soundcloud.com/bangtan" target="_blank">
+        <img
+          class="icon"
+          src="assets/images/soundcloud.png"
+          alt="BTS's SoundCloud"
+        />
+      </a>
+      <a href="https://www.youtube.com/user/BANGTANTV" target="_blank">
+        <img class="icon" src="assets/images/youtube.png" alt="BTS's Youtube" />
+      </a>
+      <a href="https://www.tiktok.com/@bts_official_bighit" target="_blank">
+        <img class="icon" src="assets/images/tiktok.png" alt="BTS's Tiktok" />
+      </a>
+    </span>
+  </div>
+  <div style="clear: right"></div>
 </body>
+
+<script>
+  window.onscroll = function () {
+    myFunction();
+  };
+
+  var header = document.getElementById("header");
+  var sticky = header.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
+</script>

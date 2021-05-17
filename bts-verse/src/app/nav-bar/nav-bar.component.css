@@ -3,19 +3,19 @@
 /* Set background color */
 body {
   background-color: lavender;
-  z-index: 9999999;
-  position: sticky;
-  top: 0;
-  margin: 0;
 }
 /* Formatting for header. */
-.header {
+.title {
   color: #252525;
   font-size: 60px;
   text-align: left;
   font-family: "Verdana";
   letter-spacing: 5px;
   display: inline;
+}
+
+.header {
+  padding: 20px;
 }
 
 /* Icon image formatting. */
@@ -40,4 +40,10 @@ body {
   margin-top: 7px;
   float: right;
   display: inline;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
