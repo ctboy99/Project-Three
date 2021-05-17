@@ -31,10 +31,17 @@ p {
 }
 
 /* Create two equal columns that floats next to each other */
-.column {
+.column1 {
   float: left;
-  width: 50%;
+  width: 40%;
   padding: 25px;
+  padding-right: 12.5px;
+}
+.column2 {
+  float: left;
+  width: 60%;
+  padding: 25px;
+  padding-left: 12.5px;
 }
 
 /* Clear floats after the columns */

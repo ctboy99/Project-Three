@@ -34,7 +34,9 @@ body {
 /* Formatting for the image's text wrapping.  */
 .text-wrap {
   float: right;
-  margin: 5px;
+  padding: 5px;
+  max-width: 80%;
+  height: auto;
 }
 
 /* Timestamp formatting. */

@@ -60,7 +60,7 @@ export class TwitterFeedComponent implements OnInit {
     // create();
     //this.api.getTimeline().subscribe((timeline: any) => {
       this.timeline = this.api.getTimeline();
-      console.log(this.timeline);
-    //});
+      // console.log(this.timeline);
+    // });
   }
 }

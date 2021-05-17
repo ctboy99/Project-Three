@@ -1,7 +1,9 @@
 <body>
-<div class="widget-title">Twitter Data</div>
+<div class="widget-title">Twitter Stats</div>
+<blockquote class="summary">User interaction with @BTS_twt & @BTS_bighit Twitter accounts during the last 30 days</blockquote>
 <div class="chart-wrapper">
     <canvas baseChart 
+    [colors]="barChartColors"
     [datasets]="barChartData"
     [labels]="barChartLabels"
     [options]="barChartOptions"
