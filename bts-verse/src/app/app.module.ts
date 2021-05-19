@@ -1,4 +1,5 @@
 /** @RH_RANTWORKS */
+/** Default AngularCLI component file. */
 
 import { WikipediaDataService } from 'src/app/wikipedia-data.service';
 import { NgModule } from '@angular/core';

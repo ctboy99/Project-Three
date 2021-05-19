@@ -1,3 +1,5 @@
+/** Default AngularCLI component file. */
+
 import { TestBed } from '@angular/core/testing';
 
 import { TwitterService } from './twitterservice.service';
