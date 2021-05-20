@@ -10,12 +10,14 @@ import * as mydata from "./mydata.json";
 @Injectable({
   providedIn: 'root',
 })
+/** @AW_RANTWORKS */
+/* Twitter Service to get the results of the JSON data. */
 export class TwitterService {
   default: null;
   tweets: Tweets[] = [];
-  apiURL = 'http://bts-verse.s3-website-us-east-1.amazonaws.com/api';
   constructor(private http: HttpClient) {}
 
+/* Function to get the JSON and map to an array of Tweet objects. */
   getTimeline(): Tweets[] {
     //console.log(mydata);
     const Data = JSON.parse(JSON.stringify(mydata));
@@ -24,15 +26,8 @@ export class TwitterService {
      //.pipe(map(data => data));
   }
   
-
-  getMentions(): any {
-    return this.http
-      .get<any[]>(this.apiURL + '/mentions_timeline')
-      .pipe(map((data) => data));
-  }
-
-
-getJSON(): any {
+/* Function to get the general JSON data. */
+  getJSON(): any {
   return mydata;
-}
+  }
 }
