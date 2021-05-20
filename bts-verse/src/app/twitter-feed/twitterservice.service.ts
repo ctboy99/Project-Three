@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import Tweets from './Tweets';
-import * as mydata from './mydata.json';
+import * as mydata from "./mydata.json";
+
 
 @Injectable({
   providedIn: 'root',
@@ -12,16 +13,17 @@ import * as mydata from './mydata.json';
 export class TwitterService {
   default: null;
   tweets: Tweets[] = [];
-  apiURL = './mydata.json';
+  apiURL = 'http://bts-verse.s3-website-us-east-1.amazonaws.com/api';
   constructor(private http: HttpClient) {}
 
   getTimeline(): Tweets[] {
-    // console.log(mydata);
+    //console.log(mydata);
     const Data = JSON.parse(JSON.stringify(mydata));
-    // console.log(Data);
-    return Data.default;
-    //.pipe(map(data => data));
+    //console.log(Data);
+     return Data.default;
+     //.pipe(map(data => data));
   }
+  
 
   getMentions(): any {
     return this.http
@@ -29,7 +31,8 @@ export class TwitterService {
       .pipe(map((data) => data));
   }
 
-  getJSON(): any {
-    return mydata;
-  }
+
+getJSON(): any {
+  return mydata;
+}
 }

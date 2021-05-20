@@ -1,3 +1,5 @@
+/** Default AngularCLI component.spec.ts file. */
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TwitterFeedComponent } from './twitter-feed.component';

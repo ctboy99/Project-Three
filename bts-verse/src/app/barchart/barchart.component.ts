@@ -1,3 +1,5 @@
+/** @AW_RANTWORKS */
+
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { HttpClient } from '@angular/common/http';
@@ -12,6 +14,8 @@ import { ChartsModule } from 'ng2-charts';
   templateUrl: './barchart.component.html',
   styleUrls: ['./barchart.component.css'],
 })
+
+/* Create a class that configures the barchart and sets the data to it. */
 export class BarchartComponent implements OnInit {
   tweetList: Tweets[] = [];
   url = 'http://localhost:3000/twitter/api';
@@ -21,8 +25,7 @@ export class BarchartComponent implements OnInit {
   barchart: Chart[] = [];
   results: Tweets[] = [];
   result: Tweets = new Tweets();
-  //ctx = document.getElementById('canvas').getContext('2d');
-
+/* Declare the Chart Options and respective datapoints for the barchart. */
   barChartOptions: ChartOptions = {
     responsive: true,
     scales: {
@@ -60,7 +63,7 @@ export class BarchartComponent implements OnInit {
   ];
 
   constructor(private http: HttpClient, private api: TwitterService) {}
-
+/* Function on initialization of the component to get and parse the data from the JSON. */
   ngOnInit(): void {
     this.results = this.api.getTimeline();
     // console.log(this.results.default.created_at);
@@ -73,43 +76,5 @@ export class BarchartComponent implements OnInit {
     this.Favorites = this.Favorites.reverse();
     this.Retweets = this.Retweets.reverse();
   }
-  //  created = {
-  //     type: 'bar',
-  //     data: {
-  //       labels: this.Dates,
-  //       datasets: [
-  //         {
-  //           data: this.Favorites,
-  //           //borderColor: '#3cba9f',
-  //           backgroundColor: [
-  //             '#3cb371',
-  //             '#0000FF',
-  //             '#9966FF',
-  //             '#4C4CFF',
-  //             '#00FFFF',
-  //             '#f990a7',
-  //             '#aad2ed',
-  //             '#FF00FF',
-  //             'Blue',
-  //             'Red',
-  //             'Blue'
-  //           ],
-  //           //fill: true
-  //         }
-  //       ]
-  //     },
-  //     options: {
-  //       legend: {
-  //         display: false
-  //       },
-  //       scales: {
-  //         xAxes: [{
-  //           display: true
-  //         }],
-  //         yAxes: [{
-  //           display: true
-  //         }],
-  //       }
-  //     },
-  //   };
+ 
 }
