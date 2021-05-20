@@ -1,3 +1,5 @@
+/** Default AngularCLI component file. */
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WikipediaComponent } from './wikipedia.component';

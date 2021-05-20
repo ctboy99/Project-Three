@@ -10,16 +10,19 @@ import { WikipediaDataService } from 'src/app/wikipedia-data.service';
   styleUrls: ['./wikipedia.component.css'],
 })
 export class WikipediaComponent implements OnInit {
-  extractHtml: string;
-  timestamp: string;
-  thumbnail: {
+  extractHtml: string; /** The HTML extracted from the wikipedia API. */
+  timestamp: string; /** The timestamp of the pull from the wikipedia API. */
+  thumbnail: { /** The wikipedia page's thumbnail extracted from the wikipedia API. */
     source: string;
     width: number;
     height: number;
   };
 
   constructor(private wikipediaService: WikipediaDataService) {
-    /** Default values are set to errors in case the HTTP request is unsuccessful. */
+    /** Creates the wikipedia component.
+     * Takes wikipediaService: WikipediaDataService
+     * Default values are set to errors in case the HTTP request is unsuccessful.
+     */
     this.extractHtml = 'error - unable to retrieve data';
     this.timestamp = 'error - unable to retrieve data';
     this.thumbnail = {

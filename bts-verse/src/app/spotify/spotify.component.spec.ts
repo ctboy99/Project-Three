@@ -1,3 +1,6 @@
+// @RH_RANTWORKS
+// Default AngularCLI component file.
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SpotifyComponent } from './spotify.component';

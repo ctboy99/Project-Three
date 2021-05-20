@@ -13,10 +13,14 @@ body {
   letter-spacing: 5px;
   display: inline;
 }
-
 .header {
   padding: 20px;
   padding-bottom: 0px;
+}
+.sticky { /** Class for making the header fixed at the top. */
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 /* Icon image formatting. */
@@ -25,26 +29,19 @@ body {
   height: 100px;
   padding: 5px;
 }
-
 .icon {
   width: 60px;
   height: 60px;
   margin: 10px;
 }
-
 .icon:hover {
   box-shadow: 3px 3px 7px gray;
   border-radius: 50px;
 }
 
+/* Icon bar formatting. */
 .icon-bar {
   margin-top: 7px;
   float: right;
   display: inline;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
 }

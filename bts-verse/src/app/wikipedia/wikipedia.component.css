@@ -21,6 +21,14 @@ body {
   font-weight: lighter;
 }
 
+/* Formatting for the wikipedia summary. */
+.summary {
+  text-align: left;
+  font-size: 10px;
+  padding-left: 20px;
+  padding-bottom: 0px;
+}
+
 /* Formatting for article from Wikipedia. */
 .article {
   background-color: white;
@@ -55,15 +63,7 @@ body {
   height: 40px;
   margin: 10px;
 }
-
 .icon:hover {
   box-shadow: 3px 3px 7px gray;
   border-radius: 50px;
-}
-
-.summary {
-  text-align: left;
-  font-size: 10px;
-  padding-left: 20px;
-  padding-bottom: 0px;
 }

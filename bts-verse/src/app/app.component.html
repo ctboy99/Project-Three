@@ -1,5 +1,7 @@
+<!-- Website's header. -->
 <header><app-nav-bar></app-nav-bar></header>
 <body>
+  <!-- Body structure. One row with a left (column1) and right (column2) pair of columns. -->
   <div class="row">
     <div class="column1">
       <app-spotify></app-spotify>
@@ -7,6 +9,7 @@
       <app-twitter-feed></app-twitter-feed>
     </div>
     <div class="column2">
+      <!-- Formatting to ensure that on mobile, the bulky about BTS widget disappears. -->
       <span class="disappear"><app-wikipedia></app-wikipedia></span>
       <br />
       <app-youtube></app-youtube>
