@@ -2,16 +2,26 @@
 
 <body>
   <!-- Card title. -->
-  <div class="widget-title">
-    About BTS
-  </div>
+  <div class="widget-title">About BTS</div>
   <blockquote class="summary">From Wikipedia, the free encyclopedia</blockquote>
   <!-- Article body. -->
   <div class="article">
+    <!-- Wikipedia source image. -->
     <img class="text-wrap" alt="Image of BTS" src="{{ thumbnail.source }}" />
+    <!-- Convert the HTML from wikipedia to display. -->
     <div [innerHTML]="extractHtml"></div>
   </div>
-  <!-- Timestamp of retrevial. -->
-  <div class="timestamp">Retrieved from <a href="https://en.wikipedia.org/wiki/BTS " target="_blank" title="BTS's Wikipedia Page"
-    >Wikipedia</a> on {{ timestamp }}</div>
+  <!-- Timestamp class. -->
+  <div class="timestamp">
+    Retrieved from
+    <!-- Link to source. -->
+    <a
+      href="https://en.wikipedia.org/wiki/BTS "
+      target="_blank"
+      title="BTS's Wikipedia Page"
+      >Wikipedia</a
+    >
+      <!-- Timestamp of retrevial. -->
+    on {{ timestamp }}
+  </div>
 </body>

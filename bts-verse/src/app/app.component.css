@@ -1,40 +1,36 @@
 body {
   background-color: lavender;
-  padding: 20px;
+  padding: 1px;
+  overflow-x: hidden;
 }
-h1 {
-  text-align: center;
-  font-family: "Verdana";
-}
-h2 {
-  text-align: center;
-  font-family: "Verdana";
-}
-h4 {
-  text-align: center;
-  font-family: "Verdana";
-}
-h5 {
-  text-align: center;
-  font-family: "Roboto; font-size: 20" px;
-}
-p {
-  color: black;
-  text-align: center;
-  font-size: 16px;
+
+header {
+  background-color: lavender;
+  padding: 1px;
+  overflow-x: hidden;
 }
 
 /* https://www.w3schools.com/howto/howto_css_two_columns.asp */
 
 * {
   box-sizing: border-box;
+  background-color: lavender;
 }
 
 /* Create two equal columns that floats next to each other */
-.column {
+.column1 {
   float: left;
-  width: 50%;
-  padding: 25px;
+  width: 40%;
+  padding: 50px;
+  padding-right: 20px;
+  margin-top: 0;
+}
+.column2 {
+  float: left;
+  width: 60%;
+  padding: 50px;
+  padding-left: 20px;
+  margin-top: 0;
 }
 
 /* Clear floats after the columns */
@@ -43,10 +39,21 @@ p {
   display: table;
   clear: both;
 }
+
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
+@media screen and (max-width: 767px) {
+  .column1 {
     width: 100%;
+    padding: 40px;
+    padding-bottom: 10px;
+  }
+  .column2 {
+    width: 100%;
+    padding: 40px;
+    padding-top: 10px;
+  }
+  .disappear {
+    display: none !important;
   }
 }
 

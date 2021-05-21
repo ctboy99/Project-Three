@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import Tweet from './Tweets';
+import { Subject } from 'rxjs';
+import Tweets  from './Tweets';
 import { TwitterService } from './twitterservice.service';
+import * as mydata from './mydata.json';
 
+declare var require: any
 declare function parser(): any;
 declare function getRecords(name: any): any;
-declare var Tweets: Tweet[];
-declare var data: any;
-
+//declare var Tweets: Tweets[];
 @Component({
   selector: 'app-twitter-feed',
   templateUrl: './twitter-feed.component.html',
@@ -16,10 +17,21 @@ export class TwitterFeedComponent implements OnInit {
   data: any;
   timeline: any;
   holder: any;
+  destroy$: Subject<boolean> = new Subject<boolean>();
+  //public tweetList: Tweet[] = mydata;
+
+
   constructor(private api: TwitterService) {}
 
   ngOnInit(): void {
     this.getTwitterTimeline();
+    //console.log(mydata);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    // Unsubscribe from the subject
+    this.destroy$.unsubscribe();
   }
 
   // setTwitterTimeline() : void {
@@ -46,10 +58,9 @@ export class TwitterFeedComponent implements OnInit {
 
   getTwitterTimeline(): void {
     // create();
-    // parser();
-    this.api.getTimeline().subscribe((timeline: any) => {
-      this.timeline = timeline;
-      console.log(this.timeline);
-    });
+    //this.api.getTimeline().subscribe((timeline: any) => {
+      this.timeline = this.api.getTimeline();
+      // console.log(this.timeline);
+    // });
   }
 }

@@ -1,29 +1,23 @@
+/** @AW_RANTWORKS */
+/* Set constant values for number of pulled tweets and critera when making the API call. */
 const MAX_TWEETS = 100;
-
-const Database = require('./database.js');
-var chart = require('chart.js');
-
-var docs = new Array();
-
-//Chart = new chart(chart);
-var db = new Database();
-db.Connector(docs);
-
-
 const params = { tweet_mode: 'extended', count: MAX_TWEETS, list_id: "1389838980326301697", exclude: "retweets, replies" };
 
-// Printed number of streamed tweets filtered by name. 
 
-var date = new Date();
-var time = date.getUTCHours();
-console.log(time);
+// var date = new Date();
+// var time = date.getUTCHours();
+// console.log(time);
 
+/* Required module imports and application. */
+const writeJsonFile = require('write-json-file');
 var fs = require('fs');
+const Database = require('./database.js');
 const express = require('express');
 const cors = require('cors');
 const Twit = require('twit');
 const app = express();
 app.use(cors());
+
 
 // Twitter API Connection
 const Twitter = new Twit({
@@ -31,23 +25,28 @@ const Twitter = new Twit({
     consumer_secret: 'Mf2ZKzNVLy7myvjcrVWIdSYSHU1apfCWtci41SIl5XEKWs6Vlm',
     access_token: '1376962088116105220-pMloTeaypLOZ57opO1ai6ZNvXRpuJ1',
     access_token_secret: 'w8ZSJ862AmlcixPvLkHwoMi8mspYf4VMpWrh4TdHavwoe',
-
-    // Pull tweets for an hour at noon, based on the screenname of the user.
 });
 
+/* Model typescript class Tweets with variable that holds expected twitter values. */
 var myCollection = {
     profile_picture: String,
     user_name: String,
     screen_name: String,
     full_text: String,
-    favorites: Number,
+    favorites: String,
     retweets: Number,
     created_at: String,
-    //last_retrieved: String,
+    //last_retrieved: string,
 };
+
 var docs = new Array();
 
-function parser() {
+/* Function to get Data from Twitter API call, and store it into the Database. */
+async function parser() {
+    const Database = require('./database.js');
+    console.log("Hello");
+    var db = new Database();
+    db.Connector(docs);
     db.connect()
     db.removeRecords("TwitterData");
     var i = 0;
@@ -72,41 +71,28 @@ function parser() {
                     docs[i].retweets, docs[i].created_at);
             }
 
-        })
-    //db.quit()
-    app.get('/twitter/api', (req, response) => {
+     
+    /* Function to get TwitterData from the Database asynchronously and write it to the JSON. */
         async function call() {
             var a = await db.getRecords("TwitterData");
             var b = JSON.stringify(a);
             var c = JSON.parse(b);
             //console.log(a);
-            response.send(c);
-        }
-        call();
-        // for (let i = 0; i < a.length; i++) {
-        // temp['profile_picture'] = a[i].user.profile_image_url;
-        // temp['user_name'] = a[i].user.name;
-        // temp['screen_name'] = a[i].user.screen_name;
-        // temp['full_text'] = a[i].full_text;
-        // temp['favorites'] = a[i].favorite_count;
-        // temp['retweets'] = a[i].retweet_count;
-        // temp['created_at'] = a[i].created_at;
-        // }
-        // var string = JSON.stringify(a);
-        // var json = JSON.parse(string);
-        // response.send(json);
-        // console.log(json);
-        //response.send(a.map(myCollection));
+            fs.writeFile('mydata.json', '', function(){console.log('JSON Cleared.')})
+            fs.writeFile('mydata.json', b, function(err, res) {
+                if (err) console.log(err);  
+                console.log("JSON Filled.")      
+        })
+    }
+    call();
 
-    })
-
-
-    //db.quit();
+})
+    
 
 }
 
 
-
+/* Function to deploy tweets to localHost server via HTTP. */
 function localHost() {
     app.get('/user_timeline', (req, response) => {
         Twitter
@@ -124,54 +110,16 @@ function localHost() {
 
 };
 
-
-parser();
-listener();
-
-module.exports = parser;
-module.exports = listener;
-module.exports = myCollection;
-
+/* Function to listen to localhost at port 3000, or http://localhost:3000 */
 function listener() {
     app.listen(3000, () => console.log("Server Running"));
 }
 
+parser();
+//call();
+//listener();
 
-
-
-function shifter(array1, array2) {
-    for (x in array1) {
-        array2.push(x);
-    }
-
-    return array2;
-}
-
-function getter(array, index) {
-    return array[index];
-}
-
-function adder(array, value) {
-    array.push(value);
-    return array;
-}
-
-exports.getCreated = function () {
-    return created.toString();
-}
-exports.getText = function () {
-    return text.toString();
-}
-
-
-    //console.log(x.response.user.followers_count);
-    //console.log(x)
-
-//exports.created = created;
-/*
-// Stream for constant pulls based on the content of the tweet.
-var stream = Twitter.stream('statuses/filter', {track: ['bts'] })
-stream.on('tweet', function(tweet) {
-    setTimeout (() => {console.log(tweet); }, 5000)
-})
-*/
+/* Export functions for global use. */
+module.exports = parser;
+module.exports = listener;
+module.exports = myCollection;

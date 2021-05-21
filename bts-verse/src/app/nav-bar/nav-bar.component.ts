@@ -1,3 +1,6 @@
+// @RH_RANTWORKS
+// Default AngularCLI component file.
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor() { /** Creates the navigation bar component. */  }
 
   ngOnInit(): void {
   }

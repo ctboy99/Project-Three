@@ -3,20 +3,24 @@
 /* Set background color */
 body {
   background-color: lavender;
-  padding-top: 25px;
 }
 /* Formatting for header. */
-.header {
+.title {
   color: #252525;
   font-size: 60px;
   text-align: left;
   font-family: "Verdana";
   letter-spacing: 5px;
-  z-index: 9999999;
-  position: sticky;
+  display: inline;
+}
+.header {
+  padding: 20px;
+  padding-bottom: 0px;
+}
+.sticky { /** Class for making the header fixed at the top. */
+  position: fixed;
   top: 0;
-  background-color: lavender;
-  padding: 5px;
+  width: 100%;
 }
 
 /* Icon image formatting. */
@@ -25,19 +29,19 @@ body {
   height: 100px;
   padding: 5px;
 }
-
 .icon {
   width: 60px;
   height: 60px;
   margin: 10px;
 }
-
 .icon:hover {
   box-shadow: 3px 3px 7px gray;
   border-radius: 50px;
 }
 
+/* Icon bar formatting. */
 .icon-bar {
+  margin-top: 7px;
   float: right;
-  clear: right;
+  display: inline;
 }
